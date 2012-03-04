@@ -33,7 +33,7 @@
 @property (assign, readonly) BOOL gameCenterAvailable;
 @property (nonatomic, retain) GKTurnBasedMatch *currentMatch;
     
-+ (GCTurnBasedMatchHelper *)sharedInstance;
++ (GameKitHelperClass *)sharedInstance;
 - (void)authenticateLocalUser;
 - (void)authenticationChanged;
 - (void)findMatchWithMinPlayers:(int)minPlayers maxPlayers:(int)maxPlayers viewController:(UIViewController *)viewController;
