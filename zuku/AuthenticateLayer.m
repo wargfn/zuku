@@ -25,9 +25,6 @@
 	// 'layer' is an autorelease object.
 	AuthenticateLayer *layer = [AuthenticateLayer node];
     
-    //Turn the Authenticate background Red
-    //layer = [CCLayerColor layerWithColor:ccc4(255,0,0,255)];
-	
 	// add layer as a child to scene
 	[scene addChild: layer];
 	
@@ -40,16 +37,19 @@
 {
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
-	if( (self=[super init])) {
+    // signed this screen to be RED
+	if( (self=[super initWithColor:ccc4(255,0,0,255)])) {
 		
 		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Authenticating..." fontName:@"Marker Felt" fontSize:64];
+		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Authenticating..." fontName:@"Marker Felt" fontSize:32];
         
 		// ask director the the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
         
 		// position the label on the center of the screen
-		label.position =  ccp( size.width /2 , size.height/2 );
+		//label.position =  ccp( size.width /2 , size.height/2 );
+        //Didnt like the MIDDLE of the screen Placement So Bottoming it out
+        label.position = ccp( size.width /2, 16);
 		
 		// add the label as a child to this Layer
 		[self addChild: label];
