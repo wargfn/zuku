@@ -12,13 +12,30 @@
 	<string></string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>Icon.png</string>
-		<string>Icon@2x.png</string>
+		<string>wargfn_57.png</string>
+		<string>Zuku_Retina.png</string>
 		<string>Icon-72.png</string>
 		<string>Icon-Small-50.png</string>
 		<string>Icon-Small.png</string>
 		<string>Icon-Small@2x.png</string>
 	</array>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>wargfn_57.png</string>
+				<string>Zuku_Retina.png</string>
+				<string>Icon-72.png</string>
+				<string>Icon-Small-50.png</string>
+				<string>Icon-Small.png</string>
+				<string>Icon-Small@2x.png</string>
+			</array>
+			<key>UIPrerenderedIcon</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>CFBundleIdentifier</key>
 	<string>com.wargfndev.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
