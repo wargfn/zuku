@@ -52,7 +52,15 @@
         label.position = ccp( size.width /2, 16);
 		
 		// add the label as a child to this Layer
-		[self addChild: label];
+		[self addChild: label z:1];
+        
+        //Adding the Ninja to the BACKGROUND
+        CCSprite *ninjaBack = [CCSprite spriteWithFile:@"zuku_ninja.png"];
+        
+        ninjaBack.position = ccp( size.width/2, ninjaBack.contentSize.height - 16);
+        ninjaBack.scale = 2.0f;
+        
+        [self addChild:ninjaBack z:0 tag:1456];
         
 	}
 	return self;
