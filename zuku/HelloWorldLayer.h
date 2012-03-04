@@ -12,6 +12,14 @@
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
 
+// going to IMPORT sneakyinput to make sure it all works.
+#import "ColoredCircleSprite.h"
+#import "ColoredSquareSprite.h"
+#import "SneakyButton.h"
+#import "SneakyButtonSkinnedBase.h"
+#import "SneakyJoystick.h"
+#import "SneakyJoystickSkinnedBase.h"
+
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
