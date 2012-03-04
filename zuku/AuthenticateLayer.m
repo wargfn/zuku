@@ -10,6 +10,7 @@
 
 // Need to import Navigation Controller
 #import "AppDelegate.h"
+#import "MenuScreenLayer.h"
 
 #pragma mark - AuthenticateLayer
 
@@ -90,4 +91,5 @@
 	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
 	[[app navController] dismissModalViewControllerAnimated:YES];
 }
+
 @end

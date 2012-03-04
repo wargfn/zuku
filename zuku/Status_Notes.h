@@ -25,6 +25,8 @@
 // -- Created Basic display pages to roll through the GameKit.
 // -- Changes to Authentication and to force player authentication
 // -- Added Sneaky buttons and joystick just in case.
+// -- Added Authentication Screen to REd, and the Ninja in the background
+// -- Do I need to just add everything I need to GameKitHelper Class so I can just write the code once
 
 #ifndef zuku_Header_h
 #define zuku_Header_h
