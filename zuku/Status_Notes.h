@@ -24,6 +24,7 @@
 // -- setup game sceens to push me through what was going on with GameKit
 // -- Created Basic display pages to roll through the GameKit.
 // -- Changes to Authentication and to force player authentication
+// -- Added Sneaky buttons and joystick just in case.
 
 #ifndef zuku_Header_h
 #define zuku_Header_h

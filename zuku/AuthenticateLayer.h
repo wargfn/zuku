@@ -8,9 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import <GameKit/GameKit.h>
 
-@interface AuthenticateLayer : CCLayer {
+// When you import this file, you import all the cocos2d classes
+#import "cocos2d.h"
+
+// going to IMPORT sneakyinput to make sure it all works.
+#import "ColoredCircleSprite.h"
+#import "ColoredSquareSprite.h"
+#import "SneakyButton.h"
+#import "SneakyButtonSkinnedBase.h"
+#import "SneakyJoystick.h"
+#import "SneakyJoystickSkinnedBase.h"
+
+// HelloWorldLayer
+@interface AuthenticateLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
+{
     
 }
+
+// returns a CCScene that contains the HelloWorldLayer as the only child
++(CCScene *) scene;
 
 @end

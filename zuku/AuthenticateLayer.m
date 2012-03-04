@@ -8,7 +8,80 @@
 
 #import "AuthenticateLayer.h"
 
+// Need to import Navigation Controller
+#import "AppDelegate.h"
+
+#pragma mark - AuthenticateLayer
 
 @implementation AuthenticateLayer
 
+
+// Helper class method that creates a Scene with the HelloWorldLayer as the only child.
++(CCScene *) scene
+{
+	// 'scene' is an autorelease object.
+	CCScene *scene = [CCScene node];
+	
+	// 'layer' is an autorelease object.
+	AuthenticateLayer *layer = [AuthenticateLayer node];
+    layer = [CCLayerColor layerWithColor:ccc4(255, 0, 0, 255)];
+	
+	// add layer as a child to scene
+	[scene addChild: layer];
+	
+	// return the scene
+	return scene;
+}
+
+// on "init" you need to initialize your instance
+-(id) init
+{
+	// always call "super" init
+	// Apple recommends to re-assign "self" with the "super's" return value
+	if( (self=[super init])) {
+		
+		// create and initialize a Label
+		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Authenticating..." fontName:@"Marker Felt" fontSize:32];
+        
+		// ask director the the window size
+		CGSize size = [[CCDirector sharedDirector] winSize];
+        
+		// position the label on the center of the screen
+		label.position =  ccp(size.width / 2 , size.height/2 );
+        //label.position = ccp (0,0);
+        //label.anchorPoint = ccp(0,0);
+        label.color = ccc3(255,255,255);
+		
+		// add the label as a child to this Layer
+		[self addChild: label];
+		
+		
+	}
+	return self;
+}
+
+// on "dealloc" you need to release all your retained objects
+- (void) dealloc
+{
+	// in case you have something to dealloc, do it in this method
+	// in this particular example nothing needs to be released.
+	// cocos2d will automatically release all the children (Label)
+	
+	// don't forget to call "super dealloc"
+	[super dealloc];
+}
+
+#pragma mark GameKit delegate
+
+-(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
+{
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
+}
+
+-(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
+}
 @end
