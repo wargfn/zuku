@@ -11,6 +11,7 @@
 // Need to import Navigation Controller
 #import "AppDelegate.h"
 #import "MenuScreenLayer.h"
+#import "GameKitHelperClass.h"
 
 #pragma mark - AuthenticateLayer
 
@@ -62,6 +63,12 @@
         ninjaBack.scale = 2.0f;
         
         [self addChild:ninjaBack z:0 tag:1456];
+        
+        //Adding the Authentication Check HERE
+        //Authenticate User
+        [[GameKitHelperClass sharedInstance] authenticateLocalUser];
+        
+
         
 	}
 	return self;
