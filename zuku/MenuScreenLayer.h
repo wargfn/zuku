@@ -7,10 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GameKit/GameKit.h>
+
+// When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
 
-@interface MenuScreenLayer : CCLayer {
-    
+// going to IMPORT sneakyinput to make sure it all works.
+#import "ColoredCircleSprite.h"
+#import "ColoredSquareSprite.h"
+#import "SneakyButton.h"
+#import "SneakyButtonSkinnedBase.h"
+#import "SneakyJoystick.h"
+#import "SneakyJoystickSkinnedBase.h"
+
+// HelloWorldLayer
+@interface MenuScreenLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
+{
 }
+
+// returns a CCScene that contains the HelloWorldLayer as the only child
++(CCScene *) scene;
 
 @end
