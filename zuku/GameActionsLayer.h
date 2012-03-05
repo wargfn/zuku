@@ -8,9 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "MenuScreenLayer.h"
+#import "GameKitHelperClass.h"
+#import "AppDelegate.h"
 
-@interface GameActionsLayer : CCLayer {
-    
+@interface GameActionsLayer : CCLayerColor <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKTurnBasedMatchmakerViewControllerDelegate, GKMatchmakerViewControllerDelegate>
+{    
+
 }
+
+
+// returns a CCScene that contains the HelloWorldLayer as the only child
++(CCScene *) scene;
 
 @end

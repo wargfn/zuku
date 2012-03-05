@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "GameKitHelperClass.h"
+#import "GameActionsLayer.h"
 
 
 @implementation MenuScreenLayer
@@ -177,5 +178,27 @@
     [[app navController] dismissModalViewControllerAnimated:YES];
     CCLOG(@"Error finding match: %@", error.localizedDescription);
 }
+
+-(void)sendNotice:(NSString *)notice forMatch:(GKTurnBasedMatch *)match 
+{
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Another game needs your attention!" message:notice 
+                                                delegate:self cancelButtonTitle:@"Sweet!" otherButtonTitles:nil];
+    [av show];
+    [av release];
+}
+
+-(void)turnBasedMatchmakerViewController:(GKTurnBasedMatchmakerViewController *)viewController didFindMatch:(GKTurnBasedMatch *)match 
+{
+    //if it did find a match, I want to roll over to GameActionsLayer
+    AppController *app = (AppController*) [[UIApplication sharedApplication]delegate];
+    [[app navController] dismissModalViewControllerAnimated:YES];
+    CCLOG(@"Switching to GameActionsLayer");
+    
+    [[CCDirector sharedDirector] pushScene:[GameActionsLayer scene]];
+    
+    
+}
+
+
 
 @end
