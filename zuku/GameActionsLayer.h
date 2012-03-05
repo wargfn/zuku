@@ -13,7 +13,7 @@
 #import "GameKitHelperClass.h"
 #import "AppDelegate.h"
 
-@interface GameActionsLayer : CCLayerColor <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKTurnBasedMatchmakerViewControllerDelegate, GKMatchmakerViewControllerDelegate>
+@interface GameActionsLayer : CCLayerColor <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKTurnBasedMatchmakerViewControllerDelegate, GKTurnBasedEventHandlerDelegate>
 {    
 
 }

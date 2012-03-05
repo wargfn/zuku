@@ -26,6 +26,48 @@
 	return scene;
 }
 
+- (void)sendTurn
+{
+    GKTurnBasedMatch *currentMatch = [[GameKitHelperClass sharedInstance] currentMatch];
+    
+    NSUInteger currentIndex = [currentMatch.participants indexOfObject:currentMatch.currentParticipant];
+    GKTurnBasedParticipant *nextParticipant;
+    
+    NSUInteger nextIndex = (currentIndex + 1) % [currentMatch.participants count];
+    nextParticipant = [currentMatch.participants objectAtIndex:nextIndex];
+    
+    for (int i = 0; i < [currentMatch.participants count]; i++) 
+    {
+        nextParticipant = [currentMatch.participants objectAtIndex:((currentIndex + 1 + i) % [currentMatch.participants count ])];
+        if (nextParticipant.matchOutcome != GKTurnBasedMatchOutcomeQuit) 
+        {
+            NSLog(@"isnt' quit %@", nextParticipant);
+            break;
+        } 
+        else 
+        {
+            NSLog(@"nex part %@", nextParticipant);
+        }
+    }
+    
+    NSString *sendString = [NSString stringWithFormat:@"TheEND"];
+    NSData *data = [sendString dataUsingEncoding:NSUTF8StringEncoding ];
+    [currentMatch endTurnWithNextParticipant:nextParticipant matchData:data completionHandler:^(NSError *error) 
+         {
+             if (error) 
+             {
+                 NSLog(@"%@", error);
+
+             } 
+             else 
+             {
+
+             }
+         }];
+
+}
+
+
 -(void)placeMatchID
 {
     if ([GKLocalPlayer localPlayer].authenticated == YES)
@@ -43,7 +85,7 @@
         CCLOG(@"MatchID: %@",matchUID);
     
         CCLabelTTF *matchID = [CCLabelTTF labelWithString:(@" %@",matchUID) fontName:@"Helvetica" fontSize:18];
-        matchID.position = ccp( size.width - matchID.contentSize.width /2, size.height - matchID.contentSize.height / 2);
+        matchID.position = ccp( size.width - matchID.contentSize.width /2, 0 + matchID.contentSize.height / 2);
         matchID.tag = 125;
     
         [self addChild: matchID];
@@ -150,7 +192,9 @@
                     part.matchOutcome = GKTurnBasedMatchOutcomeTied;
                 }
                 
-                NSData *data = "TheEND";
+                NSString *sendString = [NSString stringWithFormat:@"TheEND"];
+                NSData *data = [sendString dataUsingEncoding:NSUTF8StringEncoding ];
+
                 
                 [currentMatch endMatchInTurnWithMatchData:data completionHandler:^(NSError *error) 
                  {
@@ -161,12 +205,18 @@
                  }];
         }
                                     ];
+        
+        CCMenuItem *submitTurn = [CCMenuItemFont itemWithString:@"Send Turn" block:^(id sender)
+                {
+                        self.sendTurn; 
+                }];
+        
 		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
        
 		[menu alignItemsHorizontallyWithPadding:20];
 		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
         
-        CCMenu *actions = [CCMenu menuWithItems:cancelItem, completeGame, nil];
+        CCMenu *actions = [CCMenu menuWithItems:cancelItem, completeGame, submitTurn, nil];
         [actions alignItemsHorizontallyWithPadding:20];
         [actions setPosition:ccp( size.width / 2, size.height /2 +50)];
 		
