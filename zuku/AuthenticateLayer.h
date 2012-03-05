@@ -12,6 +12,7 @@
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
+#import "GameKitHelperClass.h"
 
 // going to IMPORT sneakyinput to make sure it all works.
 #import "ColoredCircleSprite.h"
@@ -22,7 +23,7 @@
 #import "SneakyJoystickSkinnedBase.h"
 
 // HelloWorldLayer
-@interface AuthenticateLayer : CCLayerColor <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
+@interface AuthenticateLayer : CCLayerColor <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GameKitHelperClassDelegate>
 {
     
 }

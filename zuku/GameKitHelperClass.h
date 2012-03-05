@@ -10,7 +10,7 @@
 #import <GameKit/GameKit.h>
 #import "cocos2d.h"
 
-@protocol GCTurnBasedMatchHelperDelegate
+@protocol GameKitHelperClassDelegate
 - (void)enterNewGame:(GKTurnBasedMatch *)match;
 - (void)layoutMatch:(GKTurnBasedMatch *)match;
 - (void)takeTurn:(GKTurnBasedMatch *)match;
@@ -26,10 +26,10 @@
         
         GKTurnBasedMatch *currentMatch;
         
-        id <GCTurnBasedMatchHelperDelegate> delegate;
+        id <GameKitHelperClassDelegate> delegate;
     }
     
-@property (nonatomic, retain) id <GCTurnBasedMatchHelperDelegate> delegate;
+@property (nonatomic, retain) id <GameKitHelperClassDelegate> delegate;
 @property (assign, readonly) BOOL gameCenterAvailable;
 @property (nonatomic, retain) GKTurnBasedMatch *currentMatch;
     
