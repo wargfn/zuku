@@ -192,9 +192,13 @@
     //if it did find a match, I want to roll over to GameActionsLayer
     AppController *app = (AppController*) [[UIApplication sharedApplication]delegate];
     [[app navController] dismissModalViewControllerAnimated:YES];
-    CCLOG(@"Switching to GameActionsLayer");
+    CCLOG(@"Printing MatchID");
     
-    [[CCDirector sharedDirector] pushScene:[GameActionsLayer scene]];
+    GKTurnBasedMatch *currentMatch = match.matchID;
+    NSLog(currentMatch);
+    
+     CCLOG(@"Switching to GameActionsLayer");
+    [[CCDirector sharedDirector] replaceScene:[GameActionsLayer scene]];
     
     
 }

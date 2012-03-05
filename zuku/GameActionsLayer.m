@@ -26,6 +26,11 @@
 	return scene;
 }
 
++(GameKitHelperClass *)match
+{
+    [[GameKitHelperClass sharedInstance] currentMatch];
+}
+
 - (void)sendTurn
 {
     GKTurnBasedMatch *currentMatch = [[GameKitHelperClass sharedInstance] currentMatch];
@@ -142,8 +147,7 @@
 		// add the label as a child to this Layer
 		[self addChild: label];
 		
-		
-		GKTurnBasedMatch *currentMatch = [[GameKitHelperClass sharedInstance] currentMatch];
+        GKTurnBasedMatch *currentMatch = [[GameKitHelperClass sharedInstance] currentMatch];
 		//
 		// Leaderboards and Achievements
 		//
