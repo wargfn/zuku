@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GameKit/GameKit.h>
 #import "cocos2d.h"
 #import "MenuScreenLayer.h"
 #import "GameKitHelperClass.h"

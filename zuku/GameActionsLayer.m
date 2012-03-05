@@ -26,6 +26,56 @@
 	return scene;
 }
 
+-(void)placeMatchID:(GKTurnBasedMatch *)match
+{
+    if ([GKLocalPlayer localPlayer].authenticated == YES)
+    {    
+
+
+        // ask director the the window size
+        CGSize size = [[CCDirector sharedDirector] winSize];
+    
+        NSString *matchUID = match.matchID;
+    
+        CCLabelTTF *matchID = [CCLabelTTF labelWithString:(@" %@",matchUID) fontName:@"Helvetica" fontSize:18];
+        matchID.position = ccp( size.width - matchID.contentSize.width /2, size.height - matchID.contentSize.height / 2);
+        matchID.tag = 125;
+    
+        [self addChild: matchID];
+    }
+}
+
+-(void)welcomePlayerID
+{
+    //first we test authentication
+    if ([GKLocalPlayer localPlayer].authenticated == YES)
+    {
+        // ask director the the window size
+		CGSize size = [[CCDirector sharedDirector] winSize];
+
+        
+        //First we get the player ID, then post to screen in a label
+        //[GKLocalPlayer localPlayer] *playerID = localPlayer.playerID;
+        NSString *playerLID = [GKLocalPlayer localPlayer].playerID;
+        NSString *playerAID = [GKLocalPlayer localPlayer].alias;
+        CCLOG(@"Player ID: %@",playerLID);
+        
+        CCLabelTTF *playerAliasName = [CCLabelTTF labelWithString:(@" %@",playerAID) fontName:@"Helvetica" fontSize:18];
+        playerAliasName.position = ccp( playerAliasName.contentSize.width/2, -10);
+        playerAliasName.tag = 124;
+       
+        CCLabelTTF *playerIDName = [CCLabelTTF labelWithString:(@" %@",playerLID) fontName:@"Helvetica" fontSize:18];
+        playerIDName.position = ccp( size.width - playerAliasName.contentSize.width /2 , 0 + playerIDName.contentSize.height / 2 + playerAliasName.contentSize.height);
+        playerIDName.tag = 123;
+         
+        [self addChild: playerIDName];
+        [playerIDName addChild: playerAliasName];
+      
+        
+    }
+}
+
+
 // on "init" you need to initialize your instance
 -(id) init
 {
@@ -80,13 +130,28 @@
 		}
 									   ];
 		
+        
+        CCMenuItem *cancelItem = [CCMenuItemFont itemWithString:@"Cancel" block:^(id sender)
+                                  {
+                                      
+                                      [[CCDirector sharedDirector] pushScene:[MenuScreenLayer scene]];
+                                  }
+                                  ];
+        
 		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
-		
+       
 		[menu alignItemsHorizontallyWithPadding:20];
 		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
+        
+        CCMenu *actions = [CCMenu menuWithItems:cancelItem, nil];
+        [actions alignItemsHorizontallyWithPadding:20];
+        [actions setPosition:ccp( size.width / 2, size.height /2 +50)];
 		
 		// Add the menu to the layer
 		[self addChild:menu];
+        [self addChild:actions];
+        
+        self.welcomePlayerID;
         
 	}
 	return self;
