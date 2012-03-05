@@ -26,7 +26,7 @@
 	return scene;
 }
 
--(void)placeMatchID:(GKTurnBasedMatch *)match
+-(void)placeMatchID
 {
     if ([GKLocalPlayer localPlayer].authenticated == YES)
     {    
@@ -34,8 +34,13 @@
 
         // ask director the the window size
         CGSize size = [[CCDirector sharedDirector] winSize];
+        
+        
+        //got to get the Current Match
+        GKTurnBasedMatch *currentMatch = [[GameKitHelperClass sharedInstance] currentMatch];
     
-        NSString *matchUID = match.matchID;
+        NSString *matchUID = currentMatch.matchID;
+        CCLOG(@"MatchID: %@",matchUID);
     
         CCLabelTTF *matchID = [CCLabelTTF labelWithString:(@" %@",matchUID) fontName:@"Helvetica" fontSize:18];
         matchID.position = ccp( size.width - matchID.contentSize.width /2, size.height - matchID.contentSize.height / 2);
@@ -96,7 +101,7 @@
 		[self addChild: label];
 		
 		
-		
+		GKTurnBasedMatch *currentMatch = [[GameKitHelperClass sharedInstance] currentMatch];
 		//
 		// Leaderboards and Achievements
 		//
@@ -132,18 +137,36 @@
 		
         
         CCMenuItem *cancelItem = [CCMenuItemFont itemWithString:@"Cancel" block:^(id sender)
-                                  {
+            {
                                       
-                                      [[CCDirector sharedDirector] pushScene:[MenuScreenLayer scene]];
-                                  }
+            [[CCDirector sharedDirector] pushScene:[MenuScreenLayer scene]];
+        }
                                   ];
         
+        CCMenuItem *completeGame = [CCMenuItemFont itemWithString:@"Complete" block:^(id sender)
+            {
+                for (GKTurnBasedParticipant *part in currentMatch.participants) 
+                {
+                    part.matchOutcome = GKTurnBasedMatchOutcomeTied;
+                }
+                
+                NSData *data = "TheEND";
+                
+                [currentMatch endMatchInTurnWithMatchData:data completionHandler:^(NSError *error) 
+                 {
+                     if (error) 
+                     {
+                         NSLog(@"%@", error);
+                     }
+                 }];
+        }
+                                    ];
 		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
        
 		[menu alignItemsHorizontallyWithPadding:20];
 		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
         
-        CCMenu *actions = [CCMenu menuWithItems:cancelItem, nil];
+        CCMenu *actions = [CCMenu menuWithItems:cancelItem, completeGame, nil];
         [actions alignItemsHorizontallyWithPadding:20];
         [actions setPosition:ccp( size.width / 2, size.height /2 +50)];
 		
@@ -152,6 +175,7 @@
         [self addChild:actions];
         
         self.welcomePlayerID;
+        self.placeMatchID;
         
 	}
 	return self;
