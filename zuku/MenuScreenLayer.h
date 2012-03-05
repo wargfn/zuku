@@ -21,7 +21,7 @@
 #import "SneakyJoystickSkinnedBase.h"
 
 // HelloWorldLayer
-@interface MenuScreenLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
+@interface MenuScreenLayer : CCLayerColor <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKTurnBasedMatchmakerViewControllerDelegate, GKMatchmakerViewControllerDelegate>
 {
 }
 

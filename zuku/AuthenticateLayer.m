@@ -59,8 +59,8 @@
         //Adding the Ninja to the BACKGROUND
         CCSprite *ninjaBack = [CCSprite spriteWithFile:@"zuku_ninja.png"];
         
-        ninjaBack.position = ccp( size.width/2, ninjaBack.contentSize.height - 16);
-        ninjaBack.scale = 2.0f;
+        ninjaBack.position = ccp( size.width/2, ninjaBack.contentSize.height / 2 + 16);
+        //ninjaBack.scale = 2.0f;
         
         [self addChild:ninjaBack z:0 tag:1456];
         

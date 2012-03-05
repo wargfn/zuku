@@ -38,7 +38,7 @@
 {
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
-	if( (self=[super init])) {
+	if( (self=[super initWithColor:ccc4(0,0,255,255)])) {
 		
 		// create and initialize a Label
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"MenuScreen" fontName:@"Marker Felt" fontSize:64];
@@ -86,8 +86,22 @@
 			[[app navController] presentModalViewController:leaderboardViewController animated:YES];
 		}
 									   ];
+        
+        CCMenuItem *playGame = [CCMenuItemFont itemWithString:@"Start Game" block:^(id sender)
+            {
+            
+              GKTurnBasedMatchmakerViewController *matchMakerViewController = [[GKTurnBasedMatchmakerViewController alloc ] init];
+                
+                matchMakerViewController.turnBasedMatchmakerDelegate = self;
+                
+                
+                AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+                
+                [[app navController] presentModalViewController:matchMakerViewController animated:YES];
+                                }
+                                ];
 		
-		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
+		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, playGame, nil];
 		
 		[menu alignItemsHorizontallyWithPadding:20];
 		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
@@ -119,6 +133,12 @@
 }
 
 -(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
+}
+
+-(void) matchMakerViewControllerDidFinish:(GKMatchMakerViewController *)viewController
 {
 	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
 	[[app navController] dismissModalViewControllerAnimated:YES];
