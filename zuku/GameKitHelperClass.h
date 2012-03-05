@@ -36,6 +36,6 @@
 + (GameKitHelperClass *)sharedInstance;
 - (void)authenticateLocalUser;
 - (void)authenticationChanged;
-- (void)findMatchWithMinPlayers:(int)minPlayers maxPlayers:(int)maxPlayers viewController:(UIViewController *)viewController;
-    
+//- (void)findMatchWithMinPlayers:(int)minPlayers maxPlayers:(int)maxPlayers viewController:(UIViewController *)viewController;
+-(void)findMatchWithMinPlayers:(int)minPlayers maxPlayers:(int)maxPlayers;
 @end

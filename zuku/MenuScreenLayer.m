@@ -90,24 +90,42 @@
         CCMenuItem *playGame = [CCMenuItemFont itemWithString:@"Start Game" block:^(id sender)
             {
             
-              GKTurnBasedMatchmakerViewController *matchMakerViewController = [[GKTurnBasedMatchmakerViewController alloc ] init];
                 
-                matchMakerViewController.turnBasedMatchmakerDelegate = self;
+                GKMatchRequest *request = [[GKMatchRequest alloc] init];
+                request.minPlayers = 2;
+                request.maxPlayers = 2;
+                
+                GKTurnBasedMatchmakerViewController *mmvc = [[GKTurnBasedMatchmakerViewController alloc]initWithMatchRequest:request];
+                
+                mmvc.turnBasedMatchmakerDelegate = self;
                 
                 
                 AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
                 
-                [[app navController] presentModalViewController:matchMakerViewController animated:YES];
-                                }
+                mmvc.showExistingMatches = YES;
+                
+                
+                [[app navController] presentModalViewController:mmvc animated:YES];
+                
+            }
                                 ];
 		
-		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, playGame, nil];
+		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
 		
 		[menu alignItemsHorizontallyWithPadding:20];
 		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
+        
+        CCMenu *menuHigh = [CCMenu menuWithItems:playGame, nil];
+        
+        [menuHigh alignItemsHorizontallyWithPadding:20];
+        [menuHigh setPosition:ccp( size.width /2, size.height /2 + 50)];
+        
 		
 		// Add the menu to the layer
 		[self addChild:menu];
+        
+        //add my second menu to the layer
+        [self addChild:menuHigh];
         
 	}
 	return self;
@@ -143,4 +161,21 @@
 	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
 	[[app navController] dismissModalViewControllerAnimated:YES];
 }
+
+-(void)turnBasedMatchmakerViewControllerWasCancelled:(GKTurnBasedMatchmakerViewController *)viewController
+{
+    //UIViewController *tempVC;
+    AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+    [[app navController] dismissModalViewControllerAnimated:YES];
+    CCLOG(@"has canceled");
+    
+}
+
+-(void)turnBasedMatchmakerViewController:(GKTurnBasedMatchmakerViewController *)viewController didFailWithError:(NSError *)error
+{
+    AppController *app = (AppController*) [[UIApplication sharedApplication]delegate];
+    [[app navController] dismissModalViewControllerAnimated:YES];
+    CCLOG(@"Error finding match: %@", error.localizedDescription);
+}
+
 @end

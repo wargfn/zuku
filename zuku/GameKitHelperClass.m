@@ -142,15 +142,17 @@ static GameKitHelperClass *sharedHelper = nil;
 }
 
 
--(void)findMatchWithMinPlayers:(int)minPlayers
+/* -(void)findMatchWithMinPlayers:(int)minPlayers
                     maxPlayers:(int)maxPlayers
                 viewController:(UIViewController *)viewController
+*/
+-(void)findMatchWithMinPlayers:(int)minPlayers maxPlayers:(int)maxPlayers
 {
     if(!gameCenterAvailable) return;
     
-    UIViewController *tempVC=[[UIViewController alloc] init] ;
+    //UIViewController *tempVC=[[UIViewController alloc] init] ;
     
-    presentingViewController = tempVC;
+    //presentingViewController = tempVC;
     
     GKMatchRequest *request = [[GKMatchRequest alloc] init];
     request.minPlayers = minPlayers;
@@ -159,12 +161,20 @@ static GameKitHelperClass *sharedHelper = nil;
     GKTurnBasedMatchmakerViewController *mmvc = [[GKTurnBasedMatchmakerViewController alloc]initWithMatchRequest:request];
     
     mmvc.turnBasedMatchmakerDelegate = self;
-    [[[CCDirector sharedDirector] openGLView] addSubview:tempVC.view];
+
     
-    tempVC.wantsFullScreenLayout = YES;
+    AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+    
+    //[[app navController] presentModalViewController:mmvc animated:YES];
+    
+    //[[[CCDirector sharedDirector] openGLView] addSubview:tempVC.view];
+    
+    //tempVC.wantsFullScreenLayout = YES;
     mmvc.showExistingMatches = YES;
     
-    [presentingViewController presentModalViewController:mmvc animated:YES];
+    
+    [[app navController] presentModalViewController:mmvc animated:YES];
+    //[presentingViewController presentModalViewController:mmvc animated:YES];
 }
 
 #pragma mark GKTurnBasedMatchmakerViewControllerDelegate
