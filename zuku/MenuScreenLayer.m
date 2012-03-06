@@ -222,6 +222,29 @@
     [match participantQuitInTurnWithOutcome:GKTurnBasedMatchOutcomeQuit nextParticipant:part matchData:match.matchData completionHandler:nil];
 }
 
+-(void)handleInviteFromGameCenter:(NSArray *)playersToInvite 
+{
+    //if it did find a match, I want to roll over to GameActionsLayer
+    AppController *app = (AppController*) [[UIApplication sharedApplication]delegate];
+    [[app navController] dismissModalViewControllerAnimated:YES];
+    
+
+    //[presentingViewController dismissModalViewControllerAnimated:YES];
+    GKMatchRequest *request = [[[GKMatchRequest alloc] init] autorelease]; 
+    
+    request.playersToInvite = playersToInvite;
+    request.maxPlayers = 2;
+    request.minPlayers = 2;
+    GKTurnBasedMatchmakerViewController *viewController =[[GKTurnBasedMatchmakerViewController alloc] initWithMatchRequest:request];
+    
+    viewController.showExistingMatches = NO;
+    viewController.turnBasedMatchmakerDelegate = self;
+    
+    [[app navController] presentModalViewController:viewController animated:YES];
+    [[CCDirector sharedDirector] pushScene:[GameActionsLayer scene]];
+}
+
+
 
 
 @end
