@@ -207,6 +207,8 @@
                          NSLog(@"%@", error);
                      }
                  }];
+                
+                [[CCDirector sharedDirector] pushScene:[MenuScreenLayer scene]];
         }
                                     ];
         
