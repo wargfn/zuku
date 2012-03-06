@@ -222,7 +222,7 @@
     [match participantQuitInTurnWithOutcome:GKTurnBasedMatchOutcomeQuit nextParticipant:part matchData:match.matchData completionHandler:nil];
 }
 
--(void)handleInviteFromGameCenter:(NSArray *)playersToInvite 
+/*-(void)handleInviteFromGameCenter:(NSArray *)playersToInvite 
 {
     //if it did find a match, I want to roll over to GameActionsLayer
     AppController *app = (AppController*) [[UIApplication sharedApplication]delegate];
@@ -242,7 +242,7 @@
     
     [[app navController] presentModalViewController:viewController animated:YES];
     [[CCDirector sharedDirector] pushScene:[GameActionsLayer scene]];
-}
+}*/
 
 -(void)handleMatchEnded:(GKTurnBasedMatch *)match {
     NSLog(@"Game has ended");
@@ -252,7 +252,7 @@
         //[delegate recieveEndGame:match];
         
         GameKitHelperClass.sharedInstance.currentMatch = match;
-        [[CCDirector sharedDirector] pushScene:[DisplayResultsLayer scene];
+        [[CCDirector sharedDirector] pushScene:[DisplayResultsLayer scene]];
         
     } else {
         [self sendNotice:@"Another Game Ended!" forMatch:match];
