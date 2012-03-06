@@ -244,6 +244,20 @@
     [[CCDirector sharedDirector] pushScene:[GameActionsLayer scene]];
 }
 
+-(void)handleMatchEnded:(GKTurnBasedMatch *)match {
+    NSLog(@"Game has ended");
+    
+    GKTurnBasedMatch *currentMatch = match;
+    if ([match.matchID isEqualToString:currentMatch.matchID]) {
+        //[delegate recieveEndGame:match];
+        
+        GameKitHelperClass.sharedInstance.currentMatch = match;
+        [[CCDirector sharedDirector] pushScene:[DisplayResultsLayer scene];
+        
+    } else {
+        [self sendNotice:@"Another Game Ended!" forMatch:match];
+    }
+}
 
 
 
