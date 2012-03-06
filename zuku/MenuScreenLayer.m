@@ -205,6 +205,23 @@
     
 }
 
+-(void)turnBasedMatchmakerViewController:(GKTurnBasedMatchmakerViewController *)viewController playerQuitForMatch:(GKTurnBasedMatch *)match {
+    NSUInteger currentIndex = 
+    [match.participants indexOfObject:match.currentParticipant];
+    GKTurnBasedParticipant *part;
+    
+    for (int i = 0; i < [match.participants count]; i++) {
+        part = [match.participants objectAtIndex:
+                (currentIndex + 1 + i) % match.participants.count];
+        if (part.matchOutcome != GKTurnBasedMatchOutcomeQuit) {
+            break;
+        } 
+    }
+    NSLog(@"playerquitforMatch, %@, %@", 
+          match, match.currentParticipant);
+    [match participantQuitInTurnWithOutcome:GKTurnBasedMatchOutcomeQuit nextParticipant:part matchData:match.matchData completionHandler:nil];
+}
+
 
 
 @end

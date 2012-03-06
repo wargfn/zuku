@@ -22,7 +22,7 @@
 #import "SneakyJoystickSkinnedBase.h"
 
 // HelloWorldLayer
-@interface MenuScreenLayer : CCLayerColor <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKTurnBasedMatchmakerViewControllerDelegate, GKMatchmakerViewControllerDelegate, GameKitHelperClassDelegate>
+@interface MenuScreenLayer : CCLayerColor <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKTurnBasedMatchmakerViewControllerDelegate, GKMatchmakerViewControllerDelegate, GKTurnBasedEventHandlerDelegate,GameKitHelperClassDelegate>
 {
 }
 
