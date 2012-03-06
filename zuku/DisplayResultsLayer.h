@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GameKit/GameKit.h>
 #import "cocos2d.h"
+#import "MenuScreenLayer.h"
+#import "AppDelegate.h"
 
-@interface DisplayResultsLayer : CCLayer {
+
+@interface DisplayResultsLayer : CCLayerColor <GameKitHelperClassDelegate, GKTurnBasedMatchmakerViewControllerDelegate,GKTurnBasedEventHandlerDelegate>  {
     
 }
++(CCScene *) scene;
 
 @end
