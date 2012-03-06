@@ -26,14 +26,11 @@
 	return scene;
 }
 
-+(GameKitHelperClass *)match
-{
-    [[GameKitHelperClass sharedInstance] currentMatch];
-}
-
 - (void)sendTurn
 {
-    GKTurnBasedMatch *currentMatch = [[GameKitHelperClass sharedInstance] currentMatch];
+    GameKitHelperClass *currentInstance = [GameKitHelperClass sharedInstance];
+    
+    GKTurnBasedMatch *currentMatch = GameKitHelperClass.sharedInstance.currentMatch;
     
     NSUInteger currentIndex = [currentMatch.participants indexOfObject:currentMatch.currentParticipant];
     GKTurnBasedParticipant *nextParticipant;
@@ -69,6 +66,9 @@
 
              }
          }];
+    
+    //Okay once Turn is done, roll back to the Main Menu
+    [[CCDirector sharedDirector] pushScene:[MenuScreenLayer scene]];
 
 }
 
@@ -84,12 +84,12 @@
         
         
         //got to get the Current Match
-        GKTurnBasedMatch *currentMatch = [[GameKitHelperClass sharedInstance] currentMatch];
+        GKTurnBasedMatch *currentMatch = GameKitHelperClass.sharedInstance.currentMatch;
     
         NSString *matchUID = currentMatch.matchID;
         CCLOG(@"MatchID: %@",matchUID);
     
-        CCLabelTTF *matchID = [CCLabelTTF labelWithString:(@" %@",matchUID) fontName:@"Helvetica" fontSize:18];
+        CCLabelTTF *matchID = [CCLabelTTF labelWithString:(@" Place MATCH ID") fontName:@"Helvetica" fontSize:18];
         matchID.position = ccp( size.width - matchID.contentSize.width /2, 0 + matchID.contentSize.height / 2);
         matchID.tag = 125;
     

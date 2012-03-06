@@ -197,6 +197,8 @@
     GKTurnBasedMatch *currentMatch = match.matchID;
     NSLog(currentMatch);
     
+    GameKitHelperClass.sharedInstance.currentMatch = match;
+    
      CCLOG(@"Switching to GameActionsLayer");
     [[CCDirector sharedDirector] replaceScene:[GameActionsLayer scene]];
     
