@@ -203,7 +203,7 @@
     
     //Need some logic here to switch between game results and a new game / Turn
     
-    if( currentMatch.status == 2)
+    if( match.status == 2)
     {
         //If Match is over switch to the DisplayResultsLayer
         CCLOG(@"Game is OVER, Switching to DisplayResultsLayer");
