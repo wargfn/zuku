@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B3E6F9C1503DA9D003CA2A5 /* zuku_ninja2_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3E6F9A1503DA9D003CA2A5 /* zuku_ninja2_57.png */; };
+		1B3E6F9D1503DA9D003CA2A5 /* zuku_ninja2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3E6F9B1503DA9D003CA2A5 /* zuku_ninja2.png */; };
+		1B3E6FA11503DDC2003CA2A5 /* MenuScreenLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3E6FA01503DDC2003CA2A5 /* MenuScreenLayer.m */; };
+		1B3E6FA41503DE64003CA2A5 /* GameKitHelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3E6FA31503DE64003CA2A5 /* GameKitHelperClass.m */; };
 		1B6EF30E1503BF4500D341AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6EF30D1503BF4500D341AA /* QuartzCore.framework */; };
 		1B6EF3101503BF4500D341AA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6EF30F1503BF4500D341AA /* OpenGLES.framework */; };
 		1B6EF3121503BF4500D341AA /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6EF3111503BF4500D341AA /* OpenAL.framework */; };
@@ -145,9 +149,24 @@
 		1BB254A91503C06700E434E7 /* Zuku_Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB254A31503C06700E434E7 /* Zuku_Retina.png */; };
 		1BB254AC1503C50A00E434E7 /* wargfn_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB254AB1503C50A00E434E7 /* wargfn_57.png */; };
 		1BB254AE1503C51200E434E7 /* Zuku_Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB254AD1503C51200E434E7 /* Zuku_Retina.png */; };
+		1BB254BB1503C62600E434E7 /* ColoredCircleSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB254B01503C62600E434E7 /* ColoredCircleSprite.m */; };
+		1BB254BC1503C62600E434E7 /* ColoredSquareSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB254B21503C62600E434E7 /* ColoredSquareSprite.m */; };
+		1BB254BD1503C62600E434E7 /* SneakyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB254B41503C62600E434E7 /* SneakyButton.m */; };
+		1BB254BE1503C62600E434E7 /* SneakyButtonSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB254B61503C62600E434E7 /* SneakyButtonSkinnedBase.m */; };
+		1BB254BF1503C62600E434E7 /* SneakyJoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB254B81503C62600E434E7 /* SneakyJoystick.m */; };
+		1BB254C01503C62600E434E7 /* SneakyJoystickSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB254BA1503C62600E434E7 /* SneakyJoystickSkinnedBase.m */; };
+		1BB254C31503C74000E434E7 /* AuthenticateLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB254C21503C74000E434E7 /* AuthenticateLayer.m */; };
+		1BB254C61503C7AE00E434E7 /* GameActionsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB254C51503C7AE00E434E7 /* GameActionsLayer.m */; };
+		1BB254C91503C7C600E434E7 /* DisplayResultsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB254C81503C7C600E434E7 /* DisplayResultsLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B3E6F9A1503DA9D003CA2A5 /* zuku_ninja2_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zuku_ninja2_57.png; sourceTree = "<group>"; };
+		1B3E6F9B1503DA9D003CA2A5 /* zuku_ninja2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zuku_ninja2.png; sourceTree = "<group>"; };
+		1B3E6F9F1503DDC2003CA2A5 /* MenuScreenLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScreenLayer.h; sourceTree = "<group>"; };
+		1B3E6FA01503DDC2003CA2A5 /* MenuScreenLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScreenLayer.m; sourceTree = "<group>"; };
+		1B3E6FA21503DE64003CA2A5 /* GameKitHelperClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelperClass.h; sourceTree = "<group>"; };
+		1B3E6FA31503DE64003CA2A5 /* GameKitHelperClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelperClass.m; sourceTree = "<group>"; };
 		1B6EF3091503BF4500D341AA /* zuku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zuku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B6EF30D1503BF4500D341AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1B6EF30F1503BF4500D341AA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -403,6 +422,25 @@
 		1BB254A31503C06700E434E7 /* Zuku_Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zuku_Retina.png; sourceTree = "<group>"; };
 		1BB254AB1503C50A00E434E7 /* wargfn_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wargfn_57.png; sourceTree = "<group>"; };
 		1BB254AD1503C51200E434E7 /* Zuku_Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zuku_Retina.png; sourceTree = "<group>"; };
+		1BB254AF1503C62600E434E7 /* ColoredCircleSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredCircleSprite.h; sourceTree = "<group>"; };
+		1BB254B01503C62600E434E7 /* ColoredCircleSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredCircleSprite.m; sourceTree = "<group>"; };
+		1BB254B11503C62600E434E7 /* ColoredSquareSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredSquareSprite.h; sourceTree = "<group>"; };
+		1BB254B21503C62600E434E7 /* ColoredSquareSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredSquareSprite.m; sourceTree = "<group>"; };
+		1BB254B31503C62600E434E7 /* SneakyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButton.h; sourceTree = "<group>"; };
+		1BB254B41503C62600E434E7 /* SneakyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyButton.m; sourceTree = "<group>"; };
+		1BB254B51503C62600E434E7 /* SneakyButtonSkinnedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButtonSkinnedBase.h; sourceTree = "<group>"; };
+		1BB254B61503C62600E434E7 /* SneakyButtonSkinnedBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyButtonSkinnedBase.m; sourceTree = "<group>"; };
+		1BB254B71503C62600E434E7 /* SneakyJoystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyJoystick.h; sourceTree = "<group>"; };
+		1BB254B81503C62600E434E7 /* SneakyJoystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyJoystick.m; sourceTree = "<group>"; };
+		1BB254B91503C62600E434E7 /* SneakyJoystickSkinnedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyJoystickSkinnedBase.h; sourceTree = "<group>"; };
+		1BB254BA1503C62600E434E7 /* SneakyJoystickSkinnedBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyJoystickSkinnedBase.m; sourceTree = "<group>"; };
+		1BB254C11503C74000E434E7 /* AuthenticateLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticateLayer.h; sourceTree = "<group>"; };
+		1BB254C21503C74000E434E7 /* AuthenticateLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticateLayer.m; sourceTree = "<group>"; };
+		1BB254C41503C7AE00E434E7 /* GameActionsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameActionsLayer.h; sourceTree = "<group>"; };
+		1BB254C51503C7AE00E434E7 /* GameActionsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameActionsLayer.m; sourceTree = "<group>"; };
+		1BB254C71503C7C600E434E7 /* DisplayResultsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayResultsLayer.h; sourceTree = "<group>"; };
+		1BB254C81503C7C600E434E7 /* DisplayResultsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayResultsLayer.m; sourceTree = "<group>"; };
+		1BB254CA1503C86000E434E7 /* Status_Notes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Status_Notes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -463,10 +501,33 @@
 		1B6EF31F1503BF4500D341AA /* zuku */ = {
 			isa = PBXGroup;
 			children = (
+				1BB254CA1503C86000E434E7 /* Status_Notes.h */,
+				1B3E6FA21503DE64003CA2A5 /* GameKitHelperClass.h */,
+				1B3E6FA31503DE64003CA2A5 /* GameKitHelperClass.m */,
+				1BB254C11503C74000E434E7 /* AuthenticateLayer.h */,
+				1BB254C21503C74000E434E7 /* AuthenticateLayer.m */,
 				1B6EF4901503BF4700D341AA /* AppDelegate.h */,
 				1B6EF4911503BF4700D341AA /* AppDelegate.m */,
 				1B6EF4931503BF4700D341AA /* HelloWorldLayer.h */,
 				1B6EF4941503BF4700D341AA /* HelloWorldLayer.m */,
+				1BB254C71503C7C600E434E7 /* DisplayResultsLayer.h */,
+				1BB254C81503C7C600E434E7 /* DisplayResultsLayer.m */,
+				1BB254C41503C7AE00E434E7 /* GameActionsLayer.h */,
+				1BB254C51503C7AE00E434E7 /* GameActionsLayer.m */,
+				1B3E6F9F1503DDC2003CA2A5 /* MenuScreenLayer.h */,
+				1B3E6FA01503DDC2003CA2A5 /* MenuScreenLayer.m */,
+				1BB254AF1503C62600E434E7 /* ColoredCircleSprite.h */,
+				1BB254B01503C62600E434E7 /* ColoredCircleSprite.m */,
+				1BB254B11503C62600E434E7 /* ColoredSquareSprite.h */,
+				1BB254B21503C62600E434E7 /* ColoredSquareSprite.m */,
+				1BB254B31503C62600E434E7 /* SneakyButton.h */,
+				1BB254B41503C62600E434E7 /* SneakyButton.m */,
+				1BB254B51503C62600E434E7 /* SneakyButtonSkinnedBase.h */,
+				1BB254B61503C62600E434E7 /* SneakyButtonSkinnedBase.m */,
+				1BB254B71503C62600E434E7 /* SneakyJoystick.h */,
+				1BB254B81503C62600E434E7 /* SneakyJoystick.m */,
+				1BB254B91503C62600E434E7 /* SneakyJoystickSkinnedBase.h */,
+				1BB254BA1503C62600E434E7 /* SneakyJoystickSkinnedBase.m */,
 				1B6EF3201503BF4500D341AA /* Resources */,
 				1B6EF3361503BF4500D341AA /* Shaders */,
 				1B6EF3511503BF4500D341AA /* libs */,
@@ -478,6 +539,8 @@
 		1B6EF3201503BF4500D341AA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B3E6F9A1503DA9D003CA2A5 /* zuku_ninja2_57.png */,
+				1B3E6F9B1503DA9D003CA2A5 /* zuku_ninja2.png */,
 				1BB2549E1503C06700E434E7 /* Default.png */,
 				1BB2549F1503C06700E434E7 /* Default@2x.png */,
 				1BB254A01503C06700E434E7 /* wargfn_57.png */,
@@ -920,6 +983,8 @@
 				1BB254A91503C06700E434E7 /* Zuku_Retina.png in Resources */,
 				1BB254AC1503C50A00E434E7 /* wargfn_57.png in Resources */,
 				1BB254AE1503C51200E434E7 /* Zuku_Retina.png in Resources */,
+				1B3E6F9C1503DA9D003CA2A5 /* zuku_ninja2_57.png in Resources */,
+				1B3E6F9D1503DA9D003CA2A5 /* zuku_ninja2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1027,6 +1092,17 @@
 				1B6EF48F1503BF4700D341AA /* main.m in Sources */,
 				1B6EF4921503BF4700D341AA /* AppDelegate.m in Sources */,
 				1B6EF4951503BF4700D341AA /* HelloWorldLayer.m in Sources */,
+				1BB254BB1503C62600E434E7 /* ColoredCircleSprite.m in Sources */,
+				1BB254BC1503C62600E434E7 /* ColoredSquareSprite.m in Sources */,
+				1BB254BD1503C62600E434E7 /* SneakyButton.m in Sources */,
+				1BB254BE1503C62600E434E7 /* SneakyButtonSkinnedBase.m in Sources */,
+				1BB254BF1503C62600E434E7 /* SneakyJoystick.m in Sources */,
+				1BB254C01503C62600E434E7 /* SneakyJoystickSkinnedBase.m in Sources */,
+				1BB254C31503C74000E434E7 /* AuthenticateLayer.m in Sources */,
+				1BB254C61503C7AE00E434E7 /* GameActionsLayer.m in Sources */,
+				1BB254C91503C7C600E434E7 /* DisplayResultsLayer.m in Sources */,
+				1B3E6FA11503DDC2003CA2A5 /* MenuScreenLayer.m in Sources */,
+				1B3E6FA41503DE64003CA2A5 /* GameKitHelperClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1079,6 +1155,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ronald Schachtner (62RFCBLVXN)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1088,6 +1165,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F48BADDB-A03D-4C87-8BC2-483E815CEF3E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1096,6 +1174,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ronald Schachtner (62RFCBLVXN)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = zuku/Prefix.pch;
@@ -1104,6 +1183,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F48BADDB-A03D-4C87-8BC2-483E815CEF3E";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
