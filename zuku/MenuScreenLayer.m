@@ -197,11 +197,25 @@
     GKTurnBasedMatch *currentMatch = match.matchID;
     NSLog(currentMatch);
     
+    
+    //hoping that this assigns all varibles to what I need
     GameKitHelperClass.sharedInstance.currentMatch = match;
     
-     CCLOG(@"Switching to GameActionsLayer");
-    [[CCDirector sharedDirector] replaceScene:[GameActionsLayer scene]];
+    //Need some logic here to switch between game results and a new game / Turn
     
+    if( currentMatch.status == 2)
+    {
+        //If Match is over switch to the DisplayResultsLayer
+        CCLOG(@"Game is OVER, Switching to DisplayResultsLayer");
+        [[CCDirector sharedDirector] replaceScene:[DisplayResultsLayer scene]];
+        
+    }
+    else {
+        
+        //If match is not over then go to GameActionsLayer
+        CCLOG(@"Switching to GameActionsLayer");
+        [[CCDirector sharedDirector] replaceScene:[GameActionsLayer scene]];
+    }
     
 }
 
