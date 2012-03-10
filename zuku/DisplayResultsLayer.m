@@ -81,14 +81,33 @@
 			[[app navController] presentModalViewController:leaderboardViewController animated:YES];
 		}
 									   ];
+        
+        //Adding the Buttons to return to the MenuScreenLayer when down with Display Results
+        CCMenuItem *returnButton = [CCMenuItemFont itemWithString:@"Return To Menu" block:^(id sender)
+            {
+                
+                //return to MenuScreenLayer
+                CCLOG(@"Returning to Menu");
+                [[CCDirector sharedDirector] replaceScene:[MenuScreenLayer scene]];
+            }
+                                    ];
+        
 		
 		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
 		
 		[menu alignItemsHorizontallyWithPadding:20];
 		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
+        
+        CCMenu *returnMenu = [CCMenu menuWithItems: returnButton, nil];
+        
+        [returnMenu alignItemsHorizontallyWithPadding:20];
+        [returnMenu setPosition:ccp( size.width/2, size.height/2 +50)];
 		
 		// Add the menu to the layer
 		[self addChild:menu];
+        [self addChild:returnMenu];
+        
+        //need display functions HERE
         
 	}
 	return self;
