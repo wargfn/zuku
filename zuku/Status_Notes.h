@@ -28,6 +28,13 @@
 // -- Added Authentication Screen to REd, and the Ninja in the background
 // -- Do I need to just add everything I need to GameKitHelper Class so I can just write the code once
 
+// 3/10/2012
+// 00 - Add numerous functions, game now rolls between all game modes as required
+// 00 - Still broken when it is not the current players turn, need to add a detection
+// 00 - Otherwise errors happen trying to submit completeions, CHANGE menus based on current Turn
+// 01 - Now handleing Not your turn, return to menu, displaying completed games
+
+
 #ifndef zuku_Header_h
 #define zuku_Header_h
 #endif

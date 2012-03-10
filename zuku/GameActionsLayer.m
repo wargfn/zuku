@@ -217,6 +217,13 @@
                         self.sendTurn; 
                 }];
         
+        CCMenuItem *notTurn = [CCMenuItemFont itemWithString:@"Not Your Turn, Return to Menu" block:^(id sender)
+                {
+                    //Return to MenuScreen because well ITS NOT YOUR TURN!!
+                    [[CCDirector sharedDirector] replaceScene:[MenuScreenLayer scene]];
+                    
+                }];
+        
 		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
        
 		[menu alignItemsHorizontallyWithPadding:20];
@@ -225,10 +232,26 @@
         CCMenu *actions = [CCMenu menuWithItems:cancelItem, completeGame, submitTurn, nil];
         [actions alignItemsHorizontallyWithPadding:20];
         [actions setPosition:ccp( size.width / 2, size.height /2 +50)];
+        
+        CCMenu *noActions = [CCMenu menuWithItems:notTurn, nil];
+        [noActions alignItemsHorizontallyWithPadding:20];
+        [noActions setPosition:ccp( size.width / 2, size.height /2 +50)];
 		
 		// Add the menu to the layer
 		[self addChild:menu];
-        [self addChild:actions];
+
+        //Need to say current player show this menu or else the other menu
+        //if (GKTurnBasedParticipantStatusActive
+        if ([currentMatch.currentParticipant.playerID 
+             isEqualToString:[GKLocalPlayer localPlayer].playerID]) {
+            // it's the current match and it's our turn now
+           [self addChild:actions];
+        } 
+        else {
+            // it's the current match, but it's someone else's turn
+            //build not your turn menu
+            [self addChild:noActions];
+        }
         
         self.welcomePlayerID;
         self.placeMatchID;
