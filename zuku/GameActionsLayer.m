@@ -26,6 +26,12 @@
 	return scene;
 }
 
+-(void)gameOver
+{
+    //game is over, need to flush data and change into compelted game handler moves
+    
+}
+
 - (void)sendTurn
 {
     GameKitHelperClass *currentInstance = [GameKitHelperClass sharedInstance];
@@ -52,9 +58,57 @@
         }
     }
     
-    NSString *sendString = [NSString stringWithFormat:@"TheEND"];
-    NSData *data = [sendString dataUsingEncoding:NSUTF8StringEncoding ];
-    [currentMatch endTurnWithNextParticipant:nextParticipant matchData:data completionHandler:^(NSError *error) 
+    
+    //right now only sending strings with TheEND
+    //NSString *sendString = [NSString stringWithFormat:@"TheEND"];
+    //need to send data with sendString from a RANDOMLY generated number between 0 and 27
+    int randomNumber = CCRANDOM_0_1() * 27;
+    
+    NSString *turnMove = [NSString stringWithFormat:@"%d",randomNumber];
+    //Random Number Generator can GENERATE NULLS instead of 
+    CCLOG(turnMove);
+    
+    //get Previous Data if not null
+    /*if(currentMatch.matchData != NULL)
+    {
+        //Okay append to data string
+        //AND WE KNOW we already are one move in and need to cast the game
+        for (GKTurnBasedParticipant *part in currentMatch.participants) 
+        {
+            part.matchOutcome = GKTurnBasedMatchOutcomeTied;
+        }
+        NSString *currentData = [NSString stringWithUTF8String:[currentMatch.matchData bytes]];
+        
+        NSString *sendString = [currentData stringByAppendingString:turnMove];
+        NSData *data = [sendString dataUsingEncoding:NSUTF8StringEncoding ];
+        
+        
+        [currentMatch endMatchInTurnWithMatchData:data completionHandler:^(NSError *error) 
+         {
+             if (error) 
+             {
+                 NSLog(@"%@", error);
+             }
+         }];
+        
+     
+     
+        //Temp space for finish function
+        self.gameOver;
+     
+        [[CCDirector sharedDirector] pushScene:[DisplayResultsLayer scene]];
+
+        
+        
+        //Temp space for finish function
+        self.gameOver;
+    }
+    else
+     */
+    //{
+        NSString *sendString = turnMove;
+        NSData *data = [sendString dataUsingEncoding:NSUTF8StringEncoding ];
+        [currentMatch endTurnWithNextParticipant:nextParticipant matchData:data completionHandler:^(NSError *error) 
          {
              if (error) 
              {
@@ -66,7 +120,7 @@
 
              }
          }];
-    
+    //}
     //Okay once Turn is done, roll back to the Main Menu
     [[CCDirector sharedDirector] pushScene:[MenuScreenLayer scene]];
 
