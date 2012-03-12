@@ -72,6 +72,23 @@
 
 }
 
+-(void) displayMatchData
+{
+    
+    //Get the Current match
+    GKTurnBasedMatch *match = [[GameKitHelperClass sharedInstance]currentMatch];
+    
+    //Pull the DATA out of matchData
+    NSString *oHolder = [NSString stringWithUTF8String:[match.matchData bytes]];
+    
+    CCLabelTTF *matchDisplayData = [CCLabelTTF labelWithString:(@"Match Data %@",oHolder) fontName:@"Helvetica" fontSize:20];
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    matchDisplayData.position = ccp(5 + matchDisplayData.contentSize.width /2, size.height - matchDisplayData.contentSize.height / 2);
+    
+    [self addChild: matchDisplayData];
+    
+}
+
 
 -(void)placeMatchID
 {
@@ -90,7 +107,7 @@
         CCLOG(@"MatchID: %@",matchUID);
     
         CCLabelTTF *matchID = [CCLabelTTF labelWithString:(@" Place MATCH ID") fontName:@"Helvetica" fontSize:18];
-        matchID.position = ccp( size.width - matchID.contentSize.width /2, 0 + matchID.contentSize.height / 2);
+        matchID.position = ccp( size.width - matchID.contentSize.width /2, size.height - matchID.contentSize.height / 2);
         matchID.tag = 125;
     
         [self addChild: matchID];
@@ -250,6 +267,7 @@
         else {
             // it's the current match, but it's someone else's turn
             //build not your turn menu
+            self.displayMatchData;
             [self addChild:noActions];
         }
         

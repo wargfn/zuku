@@ -31,6 +31,18 @@
 -(void) displayMatchData
 {
     
+    //Get the Current match
+    GKTurnBasedMatch *match = [[GameKitHelperClass sharedInstance]currentMatch];
+    
+    //Pull the DATA out of matchData
+    NSString *oHolder = [NSString stringWithUTF8String:[match.matchData bytes]];
+    
+    CCLabelTTF *matchDisplayData = [CCLabelTTF labelWithString:(@"Match Data %@",oHolder) fontName:@"Helvetica" fontSize:20];
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    matchDisplayData.position = ccp(size.width / 2, size.height - matchDisplayData.contentSize.height / 2);
+    
+    [self addChild: matchDisplayData];
+    
 }
 
 // on "init" you need to initialize your instance
