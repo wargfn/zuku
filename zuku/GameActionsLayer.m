@@ -66,8 +66,12 @@
     
     NSString *turnMove = [NSString stringWithFormat:@"%d",randomNumber];
     //Random Number Generator can GENERATE NULLS instead of 
-    CCLOG(turnMove);
+    CCLOG(@"%@",turnMove);
     
+    NSDate *currentMatchLastTurnDate = currentMatch.currentParticipant.lastTurnDate; 
+    NSString *currentMatchLastTurn = [NSString stringWithFormat:@"%d",currentMatchLastTurnDate];
+    
+    CCLOG(@"%@",currentMatchLastTurn);
     //get Previous Data if not null
     /*if(currentMatch.matchData != NULL)
     {
@@ -267,7 +271,7 @@
                     part.matchOutcome = GKTurnBasedMatchOutcomeTied;
                 }
                 
-                NSString *sendString = [NSString stringWithFormat:@"TheEND"];
+                NSString *sendString = [NSString stringWithFormat:@"Match Quit"];
                 NSData *data = [sendString dataUsingEncoding:NSUTF8StringEncoding ];
 
                 
