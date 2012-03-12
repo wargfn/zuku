@@ -33,6 +33,12 @@
 // 00 - Still broken when it is not the current players turn, need to add a detection
 // 00 - Otherwise errors happen trying to submit completeions, CHANGE menus based on current Turn
 // 01 - Now handleing Not your turn, return to menu, displaying completed games
+// 02 - Republished to GitHub - Woot
+// 03 - Working on Two Turn Game Logic, if it is turn two, submit turn and end game.
+
+// 3/12/2012
+// 00 - Work out displaying turn DATA in DisplayResultsLayer
+
 
 
 #ifndef zuku_Header_h

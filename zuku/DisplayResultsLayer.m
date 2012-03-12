@@ -28,6 +28,11 @@
 	return scene;
 }
 
+-(void) displayMatchData
+{
+    
+}
+
 // on "init" you need to initialize your instance
 -(id) init
 {
@@ -106,6 +111,8 @@
 		// Add the menu to the layer
 		[self addChild:menu];
         [self addChild:returnMenu];
+        
+        self.displayMatchData;
         
         //need display functions HERE
         

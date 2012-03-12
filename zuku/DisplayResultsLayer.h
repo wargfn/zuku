@@ -18,4 +18,6 @@
 }
 +(CCScene *) scene;
 
+-(void)displayMatchData;
+
 @end
