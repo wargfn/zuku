@@ -11,6 +11,7 @@
 
 @implementation GameActionsLayer
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
+
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
@@ -34,7 +35,7 @@
 
 - (void)sendTurn
 {
-    GameKitHelperClass *currentInstance = [GameKitHelperClass sharedInstance];
+    //GameKitHelperClass *currentInstance = [GameKitHelperClass sharedInstance];
     
     GKTurnBasedMatch *currentMatch = GameKitHelperClass.sharedInstance.currentMatch;
     
@@ -73,10 +74,17 @@
     
     CCLOG(@"%@",currentMatchLastTurn);
     //get Previous Data if not null
-    /*if(currentMatch.matchData != NULL)
+    if([currentMatch.matchData bytes] != NULL)
     {
+        NSLog(@"Matched Data to Not Null");
         //Okay append to data string
         //AND WE KNOW we already are one move in and need to cast the game
+        
+        
+        
+        
+        
+        
         for (GKTurnBasedParticipant *part in currentMatch.participants) 
         {
             part.matchOutcome = GKTurnBasedMatchOutcomeTied;
@@ -86,7 +94,8 @@
         NSString *sendString = [currentData stringByAppendingString:turnMove];
         NSData *data = [sendString dataUsingEncoding:NSUTF8StringEncoding ];
         
-        
+        //[currentMatch endTurnWithNextParticipant:nextParticipant matchData:data completionHandler:^(NSError *error) 
+
         [currentMatch endMatchInTurnWithMatchData:data completionHandler:^(NSError *error) 
          {
              if (error) 
@@ -98,18 +107,18 @@
      
      
         //Temp space for finish function
-        self.gameOver;
+        //self.gameOver;
      
         [[CCDirector sharedDirector] pushScene:[DisplayResultsLayer scene]];
 
         
         
         //Temp space for finish function
-        self.gameOver;
+        //self.gameOver;
     }
     else
-     */
-    //{
+    {
+        NSLog(@"Made it past Null check");
         NSString *sendString = turnMove;
         NSData *data = [sendString dataUsingEncoding:NSUTF8StringEncoding ];
         [currentMatch endTurnWithNextParticipant:nextParticipant matchData:data completionHandler:^(NSError *error) 
@@ -124,9 +133,9 @@
 
              }
          }];
-    //}
     //Okay once Turn is done, roll back to the Main Menu
     [[CCDirector sharedDirector] pushScene:[MenuScreenLayer scene]];
+    }
 
 }
 
@@ -164,11 +173,12 @@
         NSString *matchUID = currentMatch.matchID;
         CCLOG(@"MatchID: %@",matchUID);
     
-        CCLabelTTF *matchID = [CCLabelTTF labelWithString:(@" Place MATCH ID") fontName:@"Helvetica" fontSize:18];
-        matchID.position = ccp( size.width - matchID.contentSize.width /2, size.height - matchID.contentSize.height / 2);
-        matchID.tag = 125;
+        //Match ID not displayable
+        //CCLabelTTF *matchID = [CCLabelTTF labelWithString:(@" Place MATCH ID") fontName:@"Helvetica" fontSize:18];
+        //matchID.position = ccp( size.width - matchID.contentSize.width /2, size.height - matchID.contentSize.height / 2);
+        //matchID.tag = 125;
     
-        [self addChild: matchID];
+        //[self addChild: matchID];
     }
 }
 
@@ -289,7 +299,7 @@
         
         CCMenuItem *submitTurn = [CCMenuItemFont itemWithString:@"Send Turn" block:^(id sender)
                 {
-                        self.sendTurn; 
+                        [self sendTurn]; 
                 }];
         
         CCMenuItem *notTurn = [CCMenuItemFont itemWithString:@"Not Your Turn, Return to Menu" block:^(id sender)
