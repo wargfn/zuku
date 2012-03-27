@@ -87,22 +87,54 @@
             part.matchOutcome = GKTurnBasedMatchOutcomeTied;
         }*/
         NSString *currentData = [NSString stringWithUTF8String:[currentMatch.matchData bytes]];
+        //int i = [aNumberString intValue];
+        int currentMove = [currentData intValue];
+        int currentTurnMove = [turnMove intValue];
         
         //Okay now that we have the Current MOVE and the Previous Move lets do some math
-        if (currentData > turnMove)
+        if (currentMove > currentTurnMove)
         {
-            GKTurnBasedParticipant *part = currentMatch.currentParticipant;
-            GKTurnBasedParticipant *nextPart = [currentMatch.participants objectAtIndex:((currentIndex + 1 ) % [currentMatch.participants count ])];            
-            part.matchOutcome = GKTurnBasedMatchOutcomeLost;
-            nextPart.matchOutcome = GKTurnBasedMatchOutcomeWon;
+            for(GKTurnBasedParticipant *part in currentMatch.participants)
+            {
+                if ([currentMatch.currentParticipant.playerID 
+                     isEqualToString:[GKLocalPlayer localPlayer].playerID])
+                        {
+                            part.matchOutcome = GKTurnBasedMatchOutcomeLost;
+                        }
+                else 
+                {
+                    part.matchOutcome = GKTurnBasedMatchOutcomeWon;
+                }
+            CCLOG(@"Lose for Current Player");
+            }
+        }
+        else if (currentMove < currentTurnMove)
+        {
+            for (GKTurnBasedParticipant *part in currentMatch.participants)
+            {
+                
+                if ([currentMatch.currentParticipant.playerID 
+                     isEqualToString:[GKLocalPlayer localPlayer].playerID]) 
+                        {
+                            part.matchOutcome = GKTurnBasedMatchOutcomeWon;
+                        }
+                else 
+                {
+                    part.matchOutcome = GKTurnBasedMatchOutcomeLost;
+                }
+            CCLOG(@"Win for Current Player");
+            }
         }
         else
         {
-            GKTurnBasedParticipant *part = currentMatch.currentParticipant;
-            GKTurnBasedParticipant *nextPart = [currentMatch.participants objectAtIndex:((currentIndex + 1 ) % [currentMatch.participants count ])];
+            for (GKTurnBasedParticipant *part in currentMatch.participants) 
+             {
+             
+             part.matchOutcome = GKTurnBasedMatchOutcomeTied;
+                 
+             }
+            CCLOG(@"Tied");
             
-            part.matchOutcome = GKTurnBasedMatchOutcomeWon;
-            nextPart.matchOutcome = GKTurnBasedMatchOutcomeLost;
         }
         
         NSString *sendString = [currentData stringByAppendingString:turnMove];

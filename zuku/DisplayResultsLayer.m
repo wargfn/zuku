@@ -105,7 +105,22 @@
                 
                 //return to MenuScreenLayer
                 CCLOG(@"Returning to Menu");
-                [[CCDirector sharedDirector] replaceScene:[MenuScreenLayer scene]];
+                //[[CCDirector sharedDirector] replaceScene:[MenuScreenLayer scene]];
+                GKMatchRequest *request = [[GKMatchRequest alloc] init];
+                request.minPlayers = 2;
+                request.maxPlayers = 2;
+                
+                GKTurnBasedMatchmakerViewController *mmvc = [[GKTurnBasedMatchmakerViewController alloc]initWithMatchRequest:request];
+                
+                mmvc.turnBasedMatchmakerDelegate = self;
+                
+                
+                AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+                
+                mmvc.showExistingMatches = YES;
+                
+                
+                [[app navController] presentModalViewController:mmvc animated:YES];
             }
                                     ];
         
