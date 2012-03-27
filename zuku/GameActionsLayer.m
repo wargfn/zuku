@@ -80,16 +80,30 @@
         //Okay append to data string
         //AND WE KNOW we already are one move in and need to cast the game
         
-        
-        
-        
-        
-        
-        for (GKTurnBasedParticipant *part in currentMatch.participants) 
+        //Old Code Tied Everyone Up
+        /*for (GKTurnBasedParticipant *part in currentMatch.participants) 
         {
+            
             part.matchOutcome = GKTurnBasedMatchOutcomeTied;
-        }
+        }*/
         NSString *currentData = [NSString stringWithUTF8String:[currentMatch.matchData bytes]];
+        
+        //Okay now that we have the Current MOVE and the Previous Move lets do some math
+        if (currentData > turnMove)
+        {
+            GKTurnBasedParticipant *part = currentMatch.currentParticipant;
+            GKTurnBasedParticipant *nextPart = [currentMatch.participants objectAtIndex:((currentIndex + 1 ) % [currentMatch.participants count ])];            
+            part.matchOutcome = GKTurnBasedMatchOutcomeLost;
+            nextPart.matchOutcome = GKTurnBasedMatchOutcomeWon;
+        }
+        else
+        {
+            GKTurnBasedParticipant *part = currentMatch.currentParticipant;
+            GKTurnBasedParticipant *nextPart = [currentMatch.participants objectAtIndex:((currentIndex + 1 ) % [currentMatch.participants count ])];
+            
+            part.matchOutcome = GKTurnBasedMatchOutcomeWon;
+            nextPart.matchOutcome = GKTurnBasedMatchOutcomeLost;
+        }
         
         NSString *sendString = [currentData stringByAppendingString:turnMove];
         NSData *data = [sendString dataUsingEncoding:NSUTF8StringEncoding ];
