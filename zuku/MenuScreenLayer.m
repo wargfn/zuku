@@ -60,8 +60,10 @@
         wNinja.position = ccp( 0 + wNinja.contentSize.width /2, 0 + wNinja.contentSize.height /2);
         
         // velocity
-        velocityX = 5;
-        velocityY = 5;
+        velocityXb = 6;
+        velocityYb = 6;
+        velocityXw = 5;
+        velocityYw = 5;
         
         [self addChild:bNinja z:1 tag:112];
         [self addChild:wNinja z:1 tag:113];
@@ -171,27 +173,27 @@
     
     if (bNinja.position.x > 480 - bNinja.contentSize.width /2 || bNinja.position.x < 0 + bNinja.contentSize.width/2)
     {
-        velocityX = -velocityX;
+        velocityXb = -velocityXb;
     }
     
     if (bNinja.position.y > 320 - bNinja.contentSize.height /2  || bNinja.position.y < 0 + bNinja.contentSize.height /2)
     {
-        velocityY = -velocityY;
+        velocityYb = -velocityYb;
     }
     
-    bNinja.position = ccp( bNinja.position.x + velocityX, bNinja.position.y + velocityY);
+    bNinja.position = ccp( bNinja.position.x + velocityXb, bNinja.position.y + velocityYb);
     
     if (wNinja.position.x > 480 - wNinja.contentSize.width /2 || wNinja.position.x < 0 + wNinja.contentSize.width/2)
     {
-        velocityX = -velocityX;
+        velocityXw = -velocityXw;
     }
     
     if (wNinja.position.y > 320 - wNinja.contentSize.height /2  || wNinja.position.y < 0 + wNinja.contentSize.height /2)
     {
-        velocityY = -velocityY;
+        velocityYw = -velocityYw;
     }
     
-    wNinja.position = ccp( wNinja.position.x + velocityX, wNinja.position.y + velocityY);
+    wNinja.position = ccp( wNinja.position.x + velocityXw, wNinja.position.y + velocityYw);
     
 
 }

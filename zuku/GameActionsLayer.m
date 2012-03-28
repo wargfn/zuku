@@ -179,8 +179,26 @@
 
              }
          }];
+        
+    // Looks like Turn Submitted But I decided that instead of the Main Menu, you should go back tot he GameKit Controller, from there if you cancel, you get booted.
+        GKMatchRequest *request = [[GKMatchRequest alloc] init];
+        request.minPlayers = 2;
+        request.maxPlayers = 2;
+        
+        GKTurnBasedMatchmakerViewController *mmvc = [[GKTurnBasedMatchmakerViewController alloc]initWithMatchRequest:request];
+        
+        mmvc.turnBasedMatchmakerDelegate = self;
+        
+        
+        AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+        
+        mmvc.showExistingMatches = YES;
+        
+        
+        [[app navController] presentModalViewController:mmvc animated:YES];    
+        
     //Okay once Turn is done, roll back to the Main Menu
-    [[CCDirector sharedDirector] pushScene:[MenuScreenLayer scene]];
+    //[[CCDirector sharedDirector] pushScene:[MenuScreenLayer scene]];
     }
 
 }
@@ -351,7 +369,25 @@
         CCMenuItem *notTurn = [CCMenuItemFont itemWithString:@"Not Your Turn, Return to Menu" block:^(id sender)
                 {
                     //Return to MenuScreen because well ITS NOT YOUR TURN!!
-                    [[CCDirector sharedDirector] replaceScene:[MenuScreenLayer scene]];
+                    // But I decided that instead of the Main Menu, you should go back tot he GameKit Controller, from there if you cancel, you get booted.
+                    GKMatchRequest *request = [[GKMatchRequest alloc] init];
+                    request.minPlayers = 2;
+                    request.maxPlayers = 2;
+                    
+                    GKTurnBasedMatchmakerViewController *mmvc = [[GKTurnBasedMatchmakerViewController alloc]initWithMatchRequest:request];
+                    
+                    mmvc.turnBasedMatchmakerDelegate = self;
+                    
+                    
+                    AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+                    
+                    mmvc.showExistingMatches = YES;
+                    
+                    
+                    [[app navController] presentModalViewController:mmvc animated:YES];    
+                    
+                    //Not your Turn Return to the GameKit Menu
+                    //[[CCDirector sharedDirector] replaceScene:[MenuScreenLayer scene]];
                     
                 }];
         
@@ -405,6 +441,31 @@
 
 #pragma mark GameKit delegate
 
+-(void) matchMakerViewControllerDidFinish:(GKMatchMakerViewController *)viewController
+{
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
+    [[CCDirector sharedDirector] replaceScene:[MenuScreenLayer scene]];
+}
+
+-(void)turnBasedMatchmakerViewControllerWasCancelled:(GKTurnBasedMatchmakerViewController *)viewController
+{
+    //UIViewController *tempVC;
+    AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+    [[app navController] dismissModalViewControllerAnimated:YES];
+    CCLOG(@"has canceled");
+    [[CCDirector sharedDirector] replaceScene:[MenuScreenLayer scene]];
+    
+}
+
+-(void)turnBasedMatchmakerViewController:(GKTurnBasedMatchmakerViewController *)viewController didFailWithError:(NSError *)error
+{
+    AppController *app = (AppController*) [[UIApplication sharedApplication]delegate];
+    [[app navController] dismissModalViewControllerAnimated:YES];
+    CCLOG(@"Error finding match: %@", error.localizedDescription);
+    [[CCDirector sharedDirector] replaceScene:[MenuScreenLayer scene]];
+}
+
 -(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
 {
 	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
@@ -416,5 +477,55 @@
 	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
 	[[app navController] dismissModalViewControllerAnimated:YES];
 }
+
+-(void)turnBasedMatchmakerViewController:(GKTurnBasedMatchmakerViewController *)viewController didFindMatch:(GKTurnBasedMatch *)match 
+{
+    //if it did find a match, I want to roll over to GameActionsLayer
+    AppController *app = (AppController*) [[UIApplication sharedApplication]delegate];
+    [[app navController] dismissModalViewControllerAnimated:YES];
+    CCLOG(@"Printing MatchID");
+    
+    GKTurnBasedMatch *currentMatch = match.matchID;
+    NSLog(currentMatch);
+    
+    
+    //hoping that this assigns all varibles to what I need
+    GameKitHelperClass.sharedInstance.currentMatch = match;
+    
+    //Need some logic here to switch between game results and a new game / Turn
+    
+    if( match.status == 2)
+    {
+        //If Match is over switch to the DisplayResultsLayer
+        CCLOG(@"Game is OVER, Switching to DisplayResultsLayer");
+        [[CCDirector sharedDirector] replaceScene:[DisplayResultsLayer scene]];
+        
+    }
+    else {
+        
+        //If match is not over then go to GameActionsLayer
+        CCLOG(@"Switching to GameActionsLayer");
+        [[CCDirector sharedDirector] replaceScene:[GameActionsLayer scene]];
+    }
+    
+}
+
+-(void)turnBasedMatchmakerViewController:(GKTurnBasedMatchmakerViewController *)viewController playerQuitForMatch:(GKTurnBasedMatch *)match {
+    NSUInteger currentIndex = 
+    [match.participants indexOfObject:match.currentParticipant];
+    GKTurnBasedParticipant *part;
+    
+    for (int i = 0; i < [match.participants count]; i++) {
+        part = [match.participants objectAtIndex:
+                (currentIndex + 1 + i) % match.participants.count];
+        if (part.matchOutcome != GKTurnBasedMatchOutcomeQuit) {
+            break;
+        } 
+    }
+    NSLog(@"playerquitforMatch, %@, %@", 
+          match, match.currentParticipant);
+    [match participantQuitInTurnWithOutcome:GKTurnBasedMatchOutcomeQuit nextParticipant:part matchData:match.matchData completionHandler:nil];
+}
+
 
 @end
