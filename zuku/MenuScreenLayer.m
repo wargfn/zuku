@@ -40,21 +40,43 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super initWithColor:ccc4(0,0,255,255)])) {
-		
-		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"MenuScreen" fontName:@"Marker Felt" fontSize:64];
+    
         
-		// ask director the the window size
+        // ask director the the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
         
-		// position the label on the center of the screen
+		
+        // my animated background - Paste First, then schedule rotation
+        CCSprite *bg = [CCSprite spriteWithFile:@"greenbkclover.png"];
+        bg.position = ccp ( size.width/2 , size.height/2);
+        [self addChild:bg z:0 tag:12];
+        
+        [self schedule:@selector(bgRotate) interval:0.05];
+        
+        // Animated Ninjas One Black on White bouncing around the Menu Screen
+        CCSprite *bNinja = [CCSprite spriteWithFile:@"zuku_57_ninja.png"];
+        CCSprite *wNinja = [CCSprite spriteWithFile:@"zuku_ninja2_57.png"];
+        bNinja.position = ccp( size.width - bNinja.contentSize.width, size.height - bNinja.contentSize.height);
+        wNinja.position = ccp( 0 + wNinja.contentSize.width /2, 0 + wNinja.contentSize.height /2);
+        
+        // velocity
+        velocityX = 5;
+        velocityY = 5;
+        
+        [self addChild:bNinja z:1 tag:112];
+        [self addChild:wNinja z:1 tag:113];
+        
+        [self schedule:@selector(ninjaMove) interval:0.05];
+        
+        // create and initialize a Label
+		CCLabelTTF *label = [CCLabelTTF labelWithString:@"MenuScreen" fontName:@"Marker Felt" fontSize:64];
+        // position the label on the center of the screen
 		label.position =  ccp( size.width /2 , size.height/2 );
 		
 		// add the label as a child to this Layer
 		[self addChild: label];
-		
-		
-		
+
+        
 		//
 		// Leaderboards and Achievements
 		//
@@ -132,6 +154,49 @@
 	return self;
 }
 
+// rotates the backgrond on the Menu Select Screen
+-(void) bgRotate
+{
+    CCNode *bgR = [self getChildByTag:12];
+    bgR.rotation = bgR.rotation + 0.25f; 
+    
+}
+
+// move the Ninjas around
+-(void) ninjaMove
+{
+    
+    CCNode *bNinja = [self getChildByTag:112];
+    CCNode *wNinja = [self getChildByTag:113];
+    
+    if (bNinja.position.x > 480 - bNinja.contentSize.width /2 || bNinja.position.x < 0 + bNinja.contentSize.width/2)
+    {
+        velocityX = -velocityX;
+    }
+    
+    if (bNinja.position.y > 320 - bNinja.contentSize.height /2  || bNinja.position.y < 0 + bNinja.contentSize.height /2)
+    {
+        velocityY = -velocityY;
+    }
+    
+    bNinja.position = ccp( bNinja.position.x + velocityX, bNinja.position.y + velocityY);
+    
+    if (wNinja.position.x > 480 - wNinja.contentSize.width /2 || wNinja.position.x < 0 + wNinja.contentSize.width/2)
+    {
+        velocityX = -velocityX;
+    }
+    
+    if (wNinja.position.y > 320 - wNinja.contentSize.height /2  || wNinja.position.y < 0 + wNinja.contentSize.height /2)
+    {
+        velocityY = -velocityY;
+    }
+    
+    wNinja.position = ccp( wNinja.position.x + velocityX, wNinja.position.y + velocityY);
+    
+
+}
+
+
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {
@@ -200,6 +265,10 @@
     
     //hoping that this assigns all varibles to what I need
     GameKitHelperClass.sharedInstance.currentMatch = match;
+    
+    // Unscheduldlign the Ninjas and background rotate.
+    [self unschedule:@selector(bgRotate)];
+    [self unschedule:@selector(ninjaMove)];
     
     //Need some logic here to switch between game results and a new game / Turn
     

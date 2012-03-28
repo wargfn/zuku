@@ -25,6 +25,7 @@
 // HelloWorldLayer
 @interface MenuScreenLayer : CCLayerColor <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKTurnBasedMatchmakerViewControllerDelegate, GKMatchmakerViewControllerDelegate, GKTurnBasedEventHandlerDelegate,GameKitHelperClassDelegate>
 {
+    int velocityX, velocityY;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
