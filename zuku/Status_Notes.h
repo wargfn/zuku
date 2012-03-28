@@ -41,6 +41,14 @@
 // 01 - Now dispaying the Match Data on the screen, for display results and not your turn screens
 // 02 - 
 
+// 3/27/2012
+// 00 - Turn Passing now working correctly
+// 01 - Determining Successfully whom Won / Tied / Lost
+// 02 - Displying Results after completed matches - return to view controller
+// 03 - Need to add graphics for screens and menu Items
+
+
+
 
 
 #ifndef zuku_Header_h
