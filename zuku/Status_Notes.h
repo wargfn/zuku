@@ -47,6 +47,11 @@
 // 02 - Displying Results after completed matches - return to view controller
 // 03 - Need to add graphics for screens and menu Items
 
+// 3/28/2012
+// 00 - Between Screens now rolling back from menu to GameKit Game / Results
+// 01 - Added Menu Screen background Graphics, and bouncing Ninjas (sterile)
+// 02 - Begun work on Game Play selection, where moves are Picked, need to associate PlayerID to moves
+
 
 
 
