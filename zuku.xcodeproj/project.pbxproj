@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B026E8915237D3E000BD31F /* greenbkclover.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B026E8815237D3E000BD31F /* greenbkclover.png */; };
 		1B3E6F9C1503DA9D003CA2A5 /* zuku_ninja2_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3E6F9A1503DA9D003CA2A5 /* zuku_ninja2_57.png */; };
 		1B3E6F9D1503DA9D003CA2A5 /* zuku_ninja2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3E6F9B1503DA9D003CA2A5 /* zuku_ninja2.png */; };
 		1B3E6FA11503DDC2003CA2A5 /* MenuScreenLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3E6FA01503DDC2003CA2A5 /* MenuScreenLayer.m */; };
@@ -161,6 +162,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B026E8815237D3E000BD31F /* greenbkclover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenbkclover.png; sourceTree = "<group>"; };
 		1B3E6F9A1503DA9D003CA2A5 /* zuku_ninja2_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zuku_ninja2_57.png; sourceTree = "<group>"; };
 		1B3E6F9B1503DA9D003CA2A5 /* zuku_ninja2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zuku_ninja2.png; sourceTree = "<group>"; };
 		1B3E6F9F1503DDC2003CA2A5 /* MenuScreenLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScreenLayer.h; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 				1BB2549E1503C06700E434E7 /* Default.png */,
 				1BB2549F1503C06700E434E7 /* Default@2x.png */,
 				1BB254A01503C06700E434E7 /* wargfn_57.png */,
+				1B026E8815237D3E000BD31F /* greenbkclover.png */,
 				1BB254A11503C06700E434E7 /* zuku_57_ninja.png */,
 				1BB254A21503C06700E434E7 /* zuku_ninja.png */,
 				1BB254A31503C06700E434E7 /* Zuku_Retina.png */,
@@ -985,6 +988,7 @@
 				1BB254AE1503C51200E434E7 /* Zuku_Retina.png in Resources */,
 				1B3E6F9C1503DA9D003CA2A5 /* zuku_ninja2_57.png in Resources */,
 				1B3E6F9D1503DA9D003CA2A5 /* zuku_ninja2.png in Resources */,
+				1B026E8915237D3E000BD31F /* greenbkclover.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
