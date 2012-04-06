@@ -24,9 +24,14 @@
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GameKitHelperClassDelegate>
 {
+
+
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
+-(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController;
+-(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController;
+
 
 @end

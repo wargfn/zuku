@@ -413,6 +413,8 @@
              isEqualToString:[GKLocalPlayer localPlayer].playerID]) {
             // it's the current match and it's our turn now
            [self addChild:actions];
+            
+
         } 
         else {
             // it's the current match, but it's someone else's turn
