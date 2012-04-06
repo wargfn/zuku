@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B026E8915237D3E000BD31F /* greenbkclover.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B026E8815237D3E000BD31F /* greenbkclover.png */; };
+		1B026E8B15238A94000BD31F /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B026E8A15238A94000BD31F /* frame.png */; };
 		1B3E6F9C1503DA9D003CA2A5 /* zuku_ninja2_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3E6F9A1503DA9D003CA2A5 /* zuku_ninja2_57.png */; };
 		1B3E6F9D1503DA9D003CA2A5 /* zuku_ninja2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3E6F9B1503DA9D003CA2A5 /* zuku_ninja2.png */; };
 		1B3E6FA11503DDC2003CA2A5 /* MenuScreenLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3E6FA01503DDC2003CA2A5 /* MenuScreenLayer.m */; };
@@ -163,6 +164,7 @@
 
 /* Begin PBXFileReference section */
 		1B026E8815237D3E000BD31F /* greenbkclover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenbkclover.png; sourceTree = "<group>"; };
+		1B026E8A15238A94000BD31F /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
 		1B3E6F9A1503DA9D003CA2A5 /* zuku_ninja2_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zuku_ninja2_57.png; sourceTree = "<group>"; };
 		1B3E6F9B1503DA9D003CA2A5 /* zuku_ninja2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zuku_ninja2.png; sourceTree = "<group>"; };
 		1B3E6F9F1503DDC2003CA2A5 /* MenuScreenLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScreenLayer.h; sourceTree = "<group>"; };
@@ -561,6 +563,7 @@
 				1B6EF3311503BF4500D341AA /* Icon@2x.png */,
 				1B6EF3331503BF4500D341AA /* Info.plist */,
 				1B6EF3341503BF4500D341AA /* iTunesArtwork */,
+				1B026E8A15238A94000BD31F /* frame.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -930,7 +933,7 @@
 		1B6EF3001503BF4500D341AA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 1B6EF3031503BF4500D341AA /* Build configuration list for PBXProject "zuku" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -989,6 +992,7 @@
 				1B3E6F9C1503DA9D003CA2A5 /* zuku_ninja2_57.png in Resources */,
 				1B3E6F9D1503DA9D003CA2A5 /* zuku_ninja2.png in Resources */,
 				1B026E8915237D3E000BD31F /* greenbkclover.png in Resources */,
+				1B026E8B15238A94000BD31F /* frame.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
