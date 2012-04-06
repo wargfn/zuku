@@ -23,12 +23,17 @@
 #import "SneakyJoystickSkinnedBase.h"
 
 // HelloWorldLayer
-@interface AuthenticateLayer : CCLayerColor <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GameKitHelperClassDelegate>
+@interface AuthenticateLayer : CCLayerColor <GameKitHelperClassDelegate>
 {
+    CCSprite *ninjaBack;
     
 }
 
+
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
+-(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController;
+-(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController;
+
 
 @end

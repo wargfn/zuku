@@ -18,6 +18,7 @@
 @implementation AuthenticateLayer
 
 
+
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
 {
@@ -57,7 +58,7 @@
 		[self addChild: label z:1];
         
         //Adding the Ninja to the BACKGROUND
-        CCSprite *ninjaBack = [CCSprite spriteWithFile:@"zuku_ninja.png"];
+        ninjaBack = [CCSprite spriteWithFile:@"zuku_ninja.png"];
         
         ninjaBack.position = ccp( size.width/2, ninjaBack.contentSize.height / 2 + 16);
         //ninjaBack.scale = 2.0f;
@@ -80,7 +81,7 @@
 	// in case you have something to dealloc, do it in this method
 	// in this particular example nothing needs to be released.
 	// cocos2d will automatically release all the children (Label)
-	
+    
 	// don't forget to call "super dealloc"
 	[super dealloc];
 }
@@ -97,6 +98,31 @@
 {
 	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
 	[[app navController] dismissModalViewControllerAnimated:YES];
+}
+
+//These lines needed for the GameKitHelperClassDelegate
+#pragma mark GameKitHelperClassDelegate
+- (void)enterNewGame:(GKTurnBasedMatch *)match
+{
+    
+}
+
+- (void)layoutMatch:(GKTurnBasedMatch *)match
+{
+    
+}
+
+- (void)takeTurn:(GKTurnBasedMatch *)match
+{
+
+}
+- (void)recieveEndGame:(GKTurnBasedMatch *)match
+{
+    
+}
+- (void)sendNotice:(NSString *)notice forMatch:(GKTurnBasedMatch *)match
+{
+    
 }
 
 @end

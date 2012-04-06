@@ -252,4 +252,30 @@
     [match participantQuitInTurnWithOutcome:GKTurnBasedMatchOutcomeQuit nextParticipant:part matchData:match.matchData completionHandler:nil];
 }
 
+//These lines needed for the GameKitHelperClassDelegate
+#pragma mark GameKitHelperClassDelegate
+- (void)enterNewGame:(GKTurnBasedMatch *)match
+{
+    
+}
+
+- (void)layoutMatch:(GKTurnBasedMatch *)match
+{
+    
+}
+
+- (void)takeTurn:(GKTurnBasedMatch *)match
+{
+    
+}
+- (void)recieveEndGame:(GKTurnBasedMatch *)match
+{
+    
+}
+- (void)sendNotice:(NSString *)notice forMatch:(GKTurnBasedMatch *)match
+{
+    
+}
+
+
 @end
