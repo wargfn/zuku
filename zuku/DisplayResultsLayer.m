@@ -38,7 +38,7 @@
     //Pull the DATA out of matchData
     NSString *oHolder = [NSString stringWithUTF8String:[match.matchData bytes]];
     
-    CCLabelTTF *matchDisplayData = [CCLabelTTF labelWithString:(@"Match Data %@",oHolder) fontName:@"Helvetica" fontSize:20];
+    CCLabelTTF *matchDisplayData = [CCLabelTTF labelWithString:(oHolder) fontName:@"Helvetica" fontSize:20];
     CGSize size = [[CCDirector sharedDirector] winSize];
     matchDisplayData.position = ccp(size.width / 2, size.height - matchDisplayData.contentSize.height / 2);
     
@@ -140,7 +140,7 @@
 		[self addChild:menu];
         [self addChild:returnMenu];
         
-        self.displayMatchData;
+        [self displayMatchData];
         
         CCSprite *frame = [CCSprite spriteWithFile:@"frame.png"];
         frame.position = ccp( size.width /2, size.height /2);
@@ -210,8 +210,8 @@
     [[app navController] dismissModalViewControllerAnimated:YES];
     CCLOG(@"Printing MatchID");
     
-    GKTurnBasedMatch *currentMatch = match.matchID;
-    NSLog(currentMatch);
+    GKTurnBasedMatch *currentMatch = match;
+    NSLog(currentMatch.matchID);
     
     
     //hoping that this assigns all varibles to what I need

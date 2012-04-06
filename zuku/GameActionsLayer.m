@@ -212,7 +212,7 @@
     //Pull the DATA out of matchData
     NSString *oHolder = [NSString stringWithUTF8String:[match.matchData bytes]];
     
-    CCLabelTTF *matchDisplayData = [CCLabelTTF labelWithString:(@"Match Data %@",oHolder) fontName:@"Helvetica" fontSize:20];
+    CCLabelTTF *matchDisplayData = [CCLabelTTF labelWithString:(oHolder) fontName:@"Helvetica" fontSize:20];
     CGSize size = [[CCDirector sharedDirector] winSize];
     matchDisplayData.position = ccp(5 + matchDisplayData.contentSize.width /2, size.height - matchDisplayData.contentSize.height / 2);
     
@@ -228,7 +228,7 @@
 
 
         // ask director the the window size
-        CGSize size = [[CCDirector sharedDirector] winSize];
+        //CGSize size = [[CCDirector sharedDirector] winSize];
         
         
         //got to get the Current Match
@@ -261,11 +261,11 @@
         NSString *playerAID = [GKLocalPlayer localPlayer].alias;
         CCLOG(@"Player ID: %@",playerLID);
         
-        CCLabelTTF *playerAliasName = [CCLabelTTF labelWithString:(@" %@",playerAID) fontName:@"Helvetica" fontSize:18];
+        CCLabelTTF *playerAliasName = [CCLabelTTF labelWithString:(playerAID) fontName:@"Helvetica" fontSize:18];
         playerAliasName.position = ccp( playerAliasName.contentSize.width/2, -10);
         playerAliasName.tag = 124;
        
-        CCLabelTTF *playerIDName = [CCLabelTTF labelWithString:(@" %@",playerLID) fontName:@"Helvetica" fontSize:18];
+        CCLabelTTF *playerIDName = [CCLabelTTF labelWithString:(playerLID) fontName:@"Helvetica" fontSize:18];
         playerIDName.position = ccp( size.width - playerAliasName.contentSize.width /2 , 0 + playerIDName.contentSize.height / 2 + playerAliasName.contentSize.height);
         playerIDName.tag = 123;
          
@@ -419,12 +419,12 @@
         else {
             // it's the current match, but it's someone else's turn
             //build not your turn menu
-            self.displayMatchData;
+            [self displayMatchData ];
             [self addChild:noActions];
         }
         
-        self.welcomePlayerID;
-        self.placeMatchID;
+        [self welcomePlayerID ];
+        [self placeMatchID];
         
 	}
 	return self;
@@ -487,8 +487,8 @@
     [[app navController] dismissModalViewControllerAnimated:YES];
     CCLOG(@"Printing MatchID");
     
-    GKTurnBasedMatch *currentMatch = match.matchID;
-    NSLog(currentMatch);
+    GKTurnBasedMatch *currentMatch = match;
+    NSLog(currentMatch.matchID);
     
     
     //hoping that this assigns all varibles to what I need

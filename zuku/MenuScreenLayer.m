@@ -230,6 +230,13 @@
 	[[app navController] dismissModalViewControllerAnimated:YES];
 }
 
+- (void)matchmakerViewControllerWasCancelled:(GKMatchmakerViewController *)viewController
+{
+    AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
+    
+}
+
 -(void)turnBasedMatchmakerViewControllerWasCancelled:(GKTurnBasedMatchmakerViewController *)viewController
 {
     //UIViewController *tempVC;
@@ -261,8 +268,8 @@
     [[app navController] dismissModalViewControllerAnimated:YES];
     CCLOG(@"Printing MatchID");
     
-    GKTurnBasedMatch *currentMatch = match.matchID;
-    NSLog(currentMatch);
+    GKTurnBasedMatch *currentMatch = match;
+    NSLog(currentMatch.matchID);
     
     
     //hoping that this assigns all varibles to what I need
@@ -342,6 +349,11 @@
     } else {
         [self sendNotice:@"Another Game Ended!" forMatch:match];
     }
+}
+
+- (void)matchmakerViewController:(GKMatchmakerViewController *)viewController didFailWithError:(NSError *)error
+{
+    
 }
 
 //These lines needed for the GameKitHelperClassDelegate

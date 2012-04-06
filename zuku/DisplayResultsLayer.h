@@ -13,7 +13,7 @@
 #import "AppDelegate.h"
 
 
-@interface DisplayResultsLayer : CCLayerColor <GameKitHelperClassDelegate, GKTurnBasedMatchmakerViewControllerDelegate,GKTurnBasedEventHandlerDelegate>  {
+@interface DisplayResultsLayer : CCLayerColor <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKTurnBasedMatchmakerViewControllerDelegate, GKTurnBasedEventHandlerDelegate, GameKitHelperClassDelegate>  {
     
 }
 +(CCScene *) scene;
