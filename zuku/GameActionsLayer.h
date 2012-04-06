@@ -21,6 +21,11 @@
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
 
--(void)placeMatchID:(GKTurnBasedMatch *)match;
+-(void)placeMatchID;
+-(void)gameOver;
+-(void)sendTurn;
+-(void)displayMatchData;
+-(void)welcomePlayerID;
+
 
 @end
