@@ -52,7 +52,9 @@
 // 01 - Added Menu Screen background Graphics, and bouncing Ninjas (sterile)
 // 02 - Begun work on Game Play selection, where moves are Picked, need to associate PlayerID to moves
 
-
+// 4/6/2012
+// 00 - Warning Clean Ups
+// 01 - Down to 6, Match ID will never sync due to my declarations.
 
 
 
