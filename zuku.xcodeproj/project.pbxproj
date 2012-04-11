@@ -149,8 +149,6 @@
 		1BB254A71503C06700E434E7 /* zuku_57_ninja.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB254A11503C06700E434E7 /* zuku_57_ninja.png */; };
 		1BB254A81503C06700E434E7 /* zuku_ninja.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB254A21503C06700E434E7 /* zuku_ninja.png */; };
 		1BB254A91503C06700E434E7 /* Zuku_Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB254A31503C06700E434E7 /* Zuku_Retina.png */; };
-		1BB254AC1503C50A00E434E7 /* wargfn_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB254AB1503C50A00E434E7 /* wargfn_57.png */; };
-		1BB254AE1503C51200E434E7 /* Zuku_Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB254AD1503C51200E434E7 /* Zuku_Retina.png */; };
 		1BB254BB1503C62600E434E7 /* ColoredCircleSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB254B01503C62600E434E7 /* ColoredCircleSprite.m */; };
 		1BB254BC1503C62600E434E7 /* ColoredSquareSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB254B21503C62600E434E7 /* ColoredSquareSprite.m */; };
 		1BB254BD1503C62600E434E7 /* SneakyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB254B41503C62600E434E7 /* SneakyButton.m */; };
@@ -424,8 +422,6 @@
 		1BB254A11503C06700E434E7 /* zuku_57_ninja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zuku_57_ninja.png; sourceTree = "<group>"; };
 		1BB254A21503C06700E434E7 /* zuku_ninja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zuku_ninja.png; sourceTree = "<group>"; };
 		1BB254A31503C06700E434E7 /* Zuku_Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zuku_Retina.png; sourceTree = "<group>"; };
-		1BB254AB1503C50A00E434E7 /* wargfn_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wargfn_57.png; sourceTree = "<group>"; };
-		1BB254AD1503C51200E434E7 /* Zuku_Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zuku_Retina.png; sourceTree = "<group>"; };
 		1BB254AF1503C62600E434E7 /* ColoredCircleSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredCircleSprite.h; sourceTree = "<group>"; };
 		1BB254B01503C62600E434E7 /* ColoredCircleSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredCircleSprite.m; sourceTree = "<group>"; };
 		1BB254B11503C62600E434E7 /* ColoredSquareSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredSquareSprite.h; sourceTree = "<group>"; };
@@ -470,8 +466,6 @@
 		1B6EF2FE1503BF4500D341AA = {
 			isa = PBXGroup;
 			children = (
-				1BB254AD1503C51200E434E7 /* Zuku_Retina.png */,
-				1BB254AB1503C50A00E434E7 /* wargfn_57.png */,
 				1B6EF31F1503BF4500D341AA /* zuku */,
 				1B6EF30C1503BF4500D341AA /* Frameworks */,
 				1B6EF30A1503BF4500D341AA /* Products */,
@@ -987,8 +981,6 @@
 				1BB254A71503C06700E434E7 /* zuku_57_ninja.png in Resources */,
 				1BB254A81503C06700E434E7 /* zuku_ninja.png in Resources */,
 				1BB254A91503C06700E434E7 /* Zuku_Retina.png in Resources */,
-				1BB254AC1503C50A00E434E7 /* wargfn_57.png in Resources */,
-				1BB254AE1503C51200E434E7 /* Zuku_Retina.png in Resources */,
 				1B3E6F9C1503DA9D003CA2A5 /* zuku_ninja2_57.png in Resources */,
 				1B3E6F9D1503DA9D003CA2A5 /* zuku_ninja2.png in Resources */,
 				1B026E8915237D3E000BD31F /* greenbkclover.png in Resources */,
