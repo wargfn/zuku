@@ -431,6 +431,22 @@
         [self welcomePlayerID ];
         [self placeMatchID];
         
+        
+        //Okay Setting up the Layer for the ACTUAL game Play and not my Temp Code
+        
+        highButton = [CCSprite spriteWithFile:@"highbutton.png"];
+        midButton = [CCSprite spriteWithFile:@"midbutton.png"];
+        lowButton = [CCSprite spriteWithFile:@"lowbutton.png"];
+        
+        highButton.position = ccp(size.width - highButton.contentSize.width * 0.5, size.height * 0.5 + highButton.contentSize.height *2);
+        midButton.position = ccp(size.width - midButton.contentSize.width * 0.5, size.height *0.5);
+        lowButton.position = ccp (size.width - lowButton.contentSize.width * 0.5, size.height * 0.5 - lowButton.contentSize.height *2);
+        
+        [self addChild: highButton z:1];
+        [self addChild: midButton z:1];
+        [self addChild: lowButton z:1];
+        
+        
 	}
 	return self;
 }
