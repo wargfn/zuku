@@ -493,7 +493,8 @@
     CCLOG(@"Printing MatchID");
     
     GKTurnBasedMatch *currentMatch = match;
-    matchString = [NSString stringWithUTF8String:[currentMatch.matchID bytes]];
+    //matchString = [NSString stringWithUTF8String:[currentMatch.matchID bytes]];
+    matchString = currentMatch.matchID;
     CCLOG(@"%@",matchString);
     
     
