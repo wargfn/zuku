@@ -15,6 +15,7 @@
 
 @interface GameActionsLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKTurnBasedMatchmakerViewControllerDelegate, GKTurnBasedEventHandlerDelegate, GameKitHelperClassDelegate>
 {    
+    NSString *matchString;
 
 }
 

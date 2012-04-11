@@ -211,7 +211,8 @@
     CCLOG(@"Printing MatchID");
     
     GKTurnBasedMatch *currentMatch = match;
-    NSLog(currentMatch.matchID);
+    NSString *matchString = [NSString stringWithUTF8String:[currentMatch.matchID bytes]];
+    CCLOG(@"%@", matchString);
     
     
     //hoping that this assigns all varibles to what I need
