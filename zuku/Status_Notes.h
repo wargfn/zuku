@@ -61,7 +61,7 @@
 // 01 - Worked out new frame for Display results
 // 02 - DisplayResults Needs the Results Layer then the return to menu button
 // 02 - Thinking that I jsut want to display the results, then pop a button to return to the GameKit
-
+// 03 - Removed the Retina Display Support for Now
 
 
 #ifndef zuku_Header_h
