@@ -7,7 +7,6 @@
 //
 
 #import "GameKitHelperClass.h"
-#import "cocos2d.h"
 
 //import view controller
 #import "AppDelegate.h"
