@@ -26,6 +26,7 @@
 @interface MenuScreenLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKTurnBasedMatchmakerViewControllerDelegate, GKMatchmakerViewControllerDelegate, GKTurnBasedEventHandlerDelegate,GameKitHelperClassDelegate>
 {
     int velocityXb, velocityYb, velocityXw, velocityYw;
+    NSString *matchString;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
