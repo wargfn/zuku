@@ -56,6 +56,12 @@
 // 00 - Warning Clean Ups
 // 01 - Down to 6, Match ID will never sync due to my declarations.
 
+// 4/11/2012
+// 00 - Warning Clean Ups now down to NO ISSUES
+// 01 - Worked out new frame for Display results
+// 02 - DisplayResults Needs the Results Layer then the return to menu button
+// 02 - Thinking that I jsut want to display the results, then pop a button to return to the GameKit
+
 
 
 #ifndef zuku_Header_h
