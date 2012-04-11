@@ -39,8 +39,12 @@
 {
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
-	if( (self=[super initWithColor:ccc4(0,0,255,255)])) {
+	if( (self=[super init ])) 
+    {
     
+        // Color Layer
+        CCLayerColor* colorLayer = [CCLayerColor layerWithColor:ccc4(0,255,0,255)];
+        [self addChild:colorLayer z:-1];
         
         // ask director the the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
