@@ -282,8 +282,13 @@
 {
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
-	if( (self=[super initWithColor:ccc4(0,255,0,255)])) {
-		
+	if( (self=[super init ])) 
+    {
+	
+        // implementing color as a layer instead of initWithColor
+        CCLayerColor* colorLayer = [CCLayerColor layerWithColor:ccc4(0,255,0,255)];
+        [self addChild:colorLayer z:-1];
+        
 		// create and initialize a Label
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"GameActionsLayer" fontName:@"Marker Felt" fontSize:64];
         
