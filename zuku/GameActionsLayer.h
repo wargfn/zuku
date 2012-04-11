@@ -12,6 +12,8 @@
 #import "MenuScreenLayer.h"
 #import "GameKitHelperClass.h"
 #import "AppDelegate.h"
+#import "SneakyButton.h"
+#import "SneakyButtonSkinnedBase.h"
 
 @interface GameActionsLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKTurnBasedMatchmakerViewControllerDelegate, GKTurnBasedEventHandlerDelegate, GameKitHelperClassDelegate>
 {    
