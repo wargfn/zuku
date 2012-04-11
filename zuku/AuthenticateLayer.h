@@ -23,7 +23,7 @@
 #import "SneakyJoystickSkinnedBase.h"
 
 // HelloWorldLayer
-@interface AuthenticateLayer : CCLayerColor <GameKitHelperClassDelegate>
+@interface AuthenticateLayer : CCLayer <GameKitHelperClassDelegate>
 {
     CCSprite *ninjaBack;
     

@@ -41,9 +41,14 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
     // signed this screen to be RED
-	if( (self=[super initWithColor:ccc4(255,0,0,255)])) {
+	if( (self=[ super init ])) {
 		
-		// create and initialize a Label
+		//Changed Color Later to still be red but add it as a background color
+        CCLayerColor* colorLayer = [CCLayerColor layerWithColor:ccc4(255,0,0,255)];
+        [self addChild:colorLayer z:-1];
+        
+        
+        // create and initialize a Label
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Authenticating..." fontName:@"Marker Felt" fontSize:32];
         
 		// ask director the the window size
