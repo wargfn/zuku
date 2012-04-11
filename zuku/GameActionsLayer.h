@@ -17,7 +17,10 @@
 
 @interface GameActionsLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKTurnBasedMatchmakerViewControllerDelegate, GKTurnBasedEventHandlerDelegate, GameKitHelperClassDelegate>
 {    
+    NSString *gameData;
     NSString *matchString;
+    NSString *statusLabel;
+    CCLabelTTF *statusLabelTTF;
     CCSprite *highButton;
     CCSprite *midButton;
     CCSprite *lowButton;
@@ -32,6 +35,8 @@
 -(void)sendTurn;
 -(void)displayMatchData;
 -(void)welcomePlayerID;
+-(void)placeButtons;
+-(void)getMoves;
 
 
 @end

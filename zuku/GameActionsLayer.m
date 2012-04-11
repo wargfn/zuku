@@ -27,6 +27,7 @@
 	return scene;
 }
 
+
 -(void)gameOver
 {
     //game is over, need to flush data and change into compelted game handler moves
@@ -275,7 +276,33 @@
         
     }
 }
+-(void) placeButtons
+{
+    //code to place te buttons here!!!!!
+    
+}
 
+-(void) getMoves
+{
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    
+    highButton = [CCSprite spriteWithFile:@"highbutton.png"];
+    midButton = [CCSprite spriteWithFile:@"midbutton.png"];
+    lowButton = [CCSprite spriteWithFile:@"lowbutton.png"];
+     
+    highButton.position = ccp(size.width - highButton.contentSize.width * 0.5 - 10, size.height * 0.5 + highButton.contentSize.height * 1.5);
+    midButton.position = ccp(size.width - midButton.contentSize.width * 0.5 - 5, size.height *0.5);
+    lowButton.position = ccp (size.width - lowButton.contentSize.width * 0.5 - 10, size.height * 0.5 - lowButton.contentSize.height * 1.5);
+    
+    [self addChild: highButton z:1];
+    [self addChild: midButton z:1];
+    [self addChild: lowButton z:1];
+    
+    CCLabelTTF *statusLabelNode = [self getChildByTag:0123];
+    statusLabelNode.string = @"Select First Move";
+    
+    
+}
 
 // on "init" you need to initialize your instance
 -(id) init
@@ -288,6 +315,10 @@
         // implementing color as a layer instead of initWithColor
         CCLayerColor* colorLayer = [CCLayerColor layerWithColor:ccc4(0,255,0,255)];
         [self addChild:colorLayer z:-1];
+        
+        // initializng my gameData string
+        gameData = nil;
+        statusLabel = nil;
         
 		// create and initialize a Label
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"GameActionsLayer" fontName:@"Marker Felt" fontSize:64];
@@ -338,8 +369,25 @@
         
         CCMenuItem *cancelItem = [CCMenuItemFont itemWithString:@"Cancel" block:^(id sender)
             {
-                                      
-            [[CCDirector sharedDirector] pushScene:[MenuScreenLayer scene]];
+                GKMatchRequest *request = [[GKMatchRequest alloc] init];
+                request.minPlayers = 2;
+                request.maxPlayers = 2;
+                
+                GKTurnBasedMatchmakerViewController *mmvc = [[GKTurnBasedMatchmakerViewController alloc]initWithMatchRequest:request];
+                
+                mmvc.turnBasedMatchmakerDelegate = self;
+                
+                
+                AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+                
+                mmvc.showExistingMatches = YES;
+                
+                
+                [[app navController] presentModalViewController:mmvc animated:YES];    
+                
+                     
+                // Originally Dumped you back to Main Menu, I want GameKit UI move
+                // [[CCDirector sharedDirector] replaceScene:[MenuScreenLayer scene]];
         }
                                   ];
         
@@ -362,7 +410,25 @@
                      }
                  }];
                 
-                [[CCDirector sharedDirector] pushScene:[MenuScreenLayer scene]];
+                //Return to GameKit Menu
+                GKMatchRequest *request = [[GKMatchRequest alloc] init];
+                request.minPlayers = 2;
+                request.maxPlayers = 2;
+                
+                GKTurnBasedMatchmakerViewController *mmvc = [[GKTurnBasedMatchmakerViewController alloc]initWithMatchRequest:request];
+                
+                mmvc.turnBasedMatchmakerDelegate = self;
+                
+                
+                AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+                
+                mmvc.showExistingMatches = YES;
+                
+                
+                [[app navController] presentModalViewController:mmvc animated:YES];    
+                
+
+               // [[CCDirector sharedDirector] pushScene:[MenuScreenLayer scene]];
         }
                                     ];
         
@@ -418,6 +484,8 @@
              isEqualToString:[GKLocalPlayer localPlayer].playerID]) {
             // it's the current match and it's our turn now
            [self addChild:actions];
+            [self placeButtons];
+            [self getMoves];
             
 
         } 
@@ -430,21 +498,17 @@
         
         [self welcomePlayerID ];
         [self placeMatchID];
+        [self placeButtons];
+        [self getMoves];
         
         
         //Okay Setting up the Layer for the ACTUAL game Play and not my Temp Code
         
-        highButton = [CCSprite spriteWithFile:@"highbutton.png"];
-        midButton = [CCSprite spriteWithFile:@"midbutton.png"];
-        lowButton = [CCSprite spriteWithFile:@"lowbutton.png"];
+        statusLabel = [NSString stringWithString:@"Start Fight!!!!"];
+        statusLabelTTF = [CCLabelTTF labelWithString:statusLabel fontName:@"Helvetica" fontSize:16];
+        statusLabelTTF.position = ccp(0 + statusLabelTTF.contentSize.width, 0 + statusLabelTTF.contentSize.height);
+        [self addChild:statusLabelTTF z:0 tag:0123];
         
-        highButton.position = ccp(size.width - highButton.contentSize.width * 0.5, size.height * 0.5 + highButton.contentSize.height *2);
-        midButton.position = ccp(size.width - midButton.contentSize.width * 0.5, size.height *0.5);
-        lowButton.position = ccp (size.width - lowButton.contentSize.width * 0.5, size.height * 0.5 - lowButton.contentSize.height *2);
-        
-        [self addChild: highButton z:1];
-        [self addChild: midButton z:1];
-        [self addChild: lowButton z:1];
         
         
 	}
