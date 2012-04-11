@@ -142,10 +142,14 @@
         
         [self displayMatchData];
         
+        /*
+        // Want to Add Multiple Layers KEEP REading
+         
         CCSprite *frame = [CCSprite spriteWithFile:@"frame.png"];
         frame.position = ccp( size.width /2, size.height /2);
         
         [self addChild:frame z:40 tag:1101];
+         */
         
         //need display functions HERE
         
