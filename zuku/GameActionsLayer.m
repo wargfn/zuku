@@ -298,8 +298,9 @@
     [self addChild: midButton z:1];
     [self addChild: lowButton z:1];
     
-    CCLabelTTF *statusLabelNode = [self getChildByTag:0123];
-    statusLabelNode.string = @"Select First Move";
+    
+    //Getting tags Review this 
+    [statusLabelTTF setString:[NSString stringWithFormat:@"Select First Move"]];
     
     
 }
@@ -498,10 +499,7 @@
         
         [self welcomePlayerID ];
         [self placeMatchID];
-        [self placeButtons];
-        [self getMoves];
-        
-        
+                
         //Okay Setting up the Layer for the ACTUAL game Play and not my Temp Code
         
         statusLabel = [NSString stringWithString:@"Start Fight!!!!"];
